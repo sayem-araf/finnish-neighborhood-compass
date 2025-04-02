@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				finland: {
+					blue: '#6ea7cc',
+					'light-blue': '#b1d1e4',
+					green: '#3c6e47',
+					'light-green': '#acd2b5',
+					snow: '#f7f9fc'
 				}
 			},
 			borderRadius: {
