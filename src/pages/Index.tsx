@@ -1,9 +1,12 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { MapPin, Users, Leaf, CloudSun, AirVent } from "lucide-react";
+import NeighborhoodStats from "@/components/dashboard/NeighborhoodStats";
+import FactorComparisonChart from "@/components/dashboard/FactorComparisonChart";
+import LanguageDistribution from "@/components/dashboard/LanguageDistribution";
+import FinlandMap from "@/components/dashboard/FinlandMap";
 
 const Index = () => {
   return (
@@ -28,8 +31,40 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Dashboard Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8">
+            Finland Neighborhood Insights
+          </h2>
+          
+          {/* Stats Cards */}
+          <div className="mb-8">
+            <NeighborhoodStats />
+          </div>
+          
+          {/* Charts & Map */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <FactorComparisonChart />
+            <LanguageDistribution />
+          </div>
+          
+          <div className="mb-8">
+            <FinlandMap />
+          </div>
+          
+          <div className="text-center">
+            <Link to="/finder">
+              <Button size="lg" className="bg-finland-blue hover:bg-finland-blue/90">
+                Find Your Ideal Neighborhood
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-finland-snow">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
             Make Informed Housing Decisions
