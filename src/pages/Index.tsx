@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { MapPin, Users, Tree, CloudSun, AirVent } from "lucide-react";
+import { MapPin, Users, Leaf, CloudSun, AirVent } from "lucide-react";
 
 const Index = () => {
   return (
@@ -59,7 +59,7 @@ const Index = () => {
 
             <div className="flex flex-col items-center text-center p-6 bg-finland-snow rounded-lg">
               <div className="bg-finland-light-blue p-3 rounded-full mb-4">
-                <Tree size={32} className="text-white" />
+                <Leaf size={32} className="text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Lifestyle Match</h3>
               <p className="text-gray-600">
