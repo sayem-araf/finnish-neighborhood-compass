@@ -131,6 +131,10 @@ const NeighborhoodDetail = () => {
                 <div className="space-y-5">
                   {Object.entries(neighborhood.factors).map(([key, factor]) => {
                     if (key === "languages" || key === "recreationOptions") return null;
+                    
+                    // Type guard to ensure we're dealing with the correct factor type
+                    if (Array.isArray(factor) || !('name' in factor)) return null;
+                    
                     const icon = factorIcons[key as keyof typeof factorIcons];
                     return (
                       <div key={key}>
