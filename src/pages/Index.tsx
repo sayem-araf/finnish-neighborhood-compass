@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/layout/Layout";
@@ -8,6 +7,7 @@ import NeighborhoodStats from "@/components/dashboard/NeighborhoodStats";
 import FactorComparisonChart from "@/components/dashboard/FactorComparisonChart";
 import LanguageDistribution from "@/components/dashboard/LanguageDistribution";
 import FinlandMap from "@/components/dashboard/FinlandMap";
+import CityDevelopmentTabs from "@/components/dashboard/CityDevelopmentTabs";
 import {
   Carousel,
   CarouselContent,
@@ -244,76 +244,10 @@ const Index = () => {
       {/* City Development Plans Section */}
       <section className="py-16 bg-finland-snow">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-3xl font-bold text-center mb-8">
             City Development Plans
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <Card>
-              <CardHeader>
-                <CardTitle>Helsinki Vision 2035</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="aspect-video bg-muted rounded-md mb-4 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1550093165-0da26b86e980" 
-                    alt="Helsinki Vision" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="space-y-4">
-                  <p className="text-gray-600">
-                    Helsinki is implementing a comprehensive urban development strategy focused on sustainability, 
-                    mobility, and quality of living. Key initiatives include:
-                  </p>
-                  <ul className="list-disc pl-5 space-y-2">
-                    <li>Carbon-neutral city by 2035</li>
-                    <li>New tram lines connecting suburbs to city center</li>
-                    <li>Development of Jätkäsaari and Kalasatama areas</li>
-                    <li>Urban green space expansion</li>
-                  </ul>
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full" size="sm">
-                  <Building className="mr-2 h-4 w-4" />
-                  View Full Development Plan
-                </Button>
-              </CardFooter>
-            </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle>Espoo Growth Strategy 2025</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="aspect-video bg-muted rounded-md mb-4 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1577415124269-fc1140a69e91" 
-                    alt="Espoo Growth" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="space-y-4">
-                  <p className="text-gray-600">
-                    Espoo is investing in infrastructure and community development to support its growing population. 
-                    Major projects include:
-                  </p>
-                  <ul className="list-disc pl-5 space-y-2">
-                    <li>Metro line western extension</li>
-                    <li>New educational campus in Otaniemi</li>
-                    <li>Residential development in Keilaniemi</li>
-                    <li>Expansion of technology business parks</li>
-                  </ul>
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full" size="sm">
-                  <Building className="mr-2 h-4 w-4" />
-                  View Full Development Plan
-                </Button>
-              </CardFooter>
-            </Card>
-          </div>
+          <CityDevelopmentTabs />
         </div>
       </section>
 
@@ -560,4 +494,3 @@ const Index = () => {
 };
 
 export default Index;
-
