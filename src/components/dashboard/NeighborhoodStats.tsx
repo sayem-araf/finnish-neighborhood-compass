@@ -29,14 +29,16 @@ const NeighborhoodStats = ({ selectedCity }: NeighborhoodStatsProps) => {
     (totalNeighborhoods || 1)
   );
 
-  // Calculate language diversity (count of languages spoken)
-  const languagesCount = cityNeighborhoods.length > 0 ? 
-    cityNeighborhoods[0].languages.length : 4;
+  // Calculate language diversity (count of languages available in the neighborhood)
+  // Get the total number of languages by summing the non-zero language percentages
+  const languagesCount = cityNeighborhoods.length > 0 
+    ? Object.values(cityNeighborhoods[0].factors.languages).filter(val => val > 0).length
+    : 4;
   
   // Get most common languages
-  const languages = cityNeighborhoods.length > 0 ? 
-    cityNeighborhoods[0].languages.slice(0, 3).join(", ") + " & others" : 
-    "Finnish, Swedish, English & others";
+  const languages = cityNeighborhoods.length > 0 
+    ? "Finnish, Swedish, English & others" 
+    : "Finnish, Swedish, English & others";
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
