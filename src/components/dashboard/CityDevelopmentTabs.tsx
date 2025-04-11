@@ -7,8 +7,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Building } from "lucide-react";
+import { Building, ExternalLink } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useToast } from "@/components/ui/use-toast";
 
 type DevelopmentPlan = {
   city: string;
@@ -16,6 +17,7 @@ type DevelopmentPlan = {
   description: string;
   imageUrl: string;
   initiatives: string[];
+  planUrl: string;
 };
 
 const developmentPlans: DevelopmentPlan[] = [
@@ -30,7 +32,8 @@ const developmentPlans: DevelopmentPlan[] = [
       "Development of Jätkäsaari and Kalasatama areas",
       "Urban green space expansion",
       "Sustainable housing development in Kruunuvuorenranta"
-    ]
+    ],
+    planUrl: "https://www.hel.fi/en/decision-making/development/helsinki-city-strategy-2021-2025"
   },
   {
     city: "Espoo",
@@ -43,7 +46,8 @@ const developmentPlans: DevelopmentPlan[] = [
       "Residential development in Keilaniemi",
       "Expansion of technology business parks",
       "Leppävaara central area renovation"
-    ]
+    ],
+    planUrl: "https://www.espoo.fi/en/city-espoo/espoo-story"
   },
   {
     city: "Tampere",
@@ -56,7 +60,8 @@ const developmentPlans: DevelopmentPlan[] = [
       "Lakeside development project along Näsijärvi",
       "Smart city technology implementation",
       "Cultural venue revitalization in the city center"
-    ]
+    ],
+    planUrl: "https://www.tampere.fi/en/city-of-tampere/city-strategy"
   },
   {
     city: "Turku",
@@ -69,11 +74,26 @@ const developmentPlans: DevelopmentPlan[] = [
       "Historic quarter preservation",
       "Port area modernization",
       "Science Park expansion for biotechnology"
-    ]
+    ],
+    planUrl: "https://www.turku.fi/en/decision-making/vision-and-strategy"
   }
 ];
 
 const CityDevelopmentTabs = () => {
+  const { toast } = useToast();
+
+  const handleViewPlan = (city: string, url: string) => {
+    if (url) {
+      window.open(url, '_blank');
+    } else {
+      toast({
+        title: "Plan unavailable",
+        description: `The development plan for ${city} is not currently available.`,
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <Tabs defaultValue="Helsinki" className="w-full">
       <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-6">
@@ -111,9 +131,15 @@ const CityDevelopmentTabs = () => {
                       <li key={index}>{initiative}</li>
                     ))}
                   </ul>
-                  <Button variant="outline" className="w-full mt-4" size="sm">
+                  <Button 
+                    variant="outline" 
+                    className="w-full mt-4" 
+                    size="sm"
+                    onClick={() => handleViewPlan(plan.city, plan.planUrl)}
+                  >
                     <Building className="mr-2 h-4 w-4" />
-                    View Full Development Plan
+                    <span>View Full Development Plan</span>
+                    <ExternalLink className="ml-2 h-3 w-3" />
                   </Button>
                 </div>
               </div>
