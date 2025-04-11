@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Building, ExternalLink } from "lucide-react";
+import { Building, ExternalLink, Calendar, MapPin } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -18,6 +18,9 @@ type DevelopmentPlan = {
   imageUrl: string;
   initiatives: string[];
   planUrl: string;
+  completionYear: string;
+  budget: string;
+  location: string;
 };
 
 const developmentPlans: DevelopmentPlan[] = [
@@ -33,7 +36,10 @@ const developmentPlans: DevelopmentPlan[] = [
       "Urban green space expansion",
       "Sustainable housing development in Kruunuvuorenranta"
     ],
-    planUrl: "https://www.hel.fi/en/decision-making/development/helsinki-city-strategy-2021-2025"
+    planUrl: "https://www.hel.fi/en/decision-making/development/helsinki-city-strategy-2021-2025",
+    completionYear: "2035",
+    budget: "€520 million",
+    location: "City-wide with focus on southern districts"
   },
   {
     city: "Espoo",
@@ -47,7 +53,10 @@ const developmentPlans: DevelopmentPlan[] = [
       "Expansion of technology business parks",
       "Leppävaara central area renovation"
     ],
-    planUrl: "https://www.espoo.fi/en/city-espoo/espoo-story"
+    planUrl: "https://www.espoo.fi/en/city-espoo/espoo-story",
+    completionYear: "2025",
+    budget: "€340 million",
+    location: "Focus on western and southern districts"
   },
   {
     city: "Tampere",
@@ -61,7 +70,10 @@ const developmentPlans: DevelopmentPlan[] = [
       "Smart city technology implementation",
       "Cultural venue revitalization in the city center"
     ],
-    planUrl: "https://www.tampere.fi/en/city-of-tampere/city-strategy"
+    planUrl: "https://www.tampere.fi/en/city-of-tampere/city-strategy",
+    completionYear: "2030",
+    budget: "€280 million",
+    location: "Central and western Tampere"
   },
   {
     city: "Turku",
@@ -75,7 +87,10 @@ const developmentPlans: DevelopmentPlan[] = [
       "Port area modernization",
       "Science Park expansion for biotechnology"
     ],
-    planUrl: "https://www.turku.fi/en/decision-making/vision-and-strategy"
+    planUrl: "https://www.turku.fi/en/decision-making/vision-and-strategy",
+    completionYear: "2029",
+    budget: "€230 million",
+    location: "City center and riverside areas"
   }
 ];
 
@@ -108,7 +123,12 @@ const CityDevelopmentTabs = () => {
         <TabsContent key={plan.city} value={plan.city} className="mt-0">
           <Card>
             <CardHeader>
-              <CardTitle>{plan.title}</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                {plan.title}
+                <span className="text-sm font-normal text-muted-foreground ml-2">
+                  Target: {plan.completionYear}
+                </span>
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -123,6 +143,20 @@ const CityDevelopmentTabs = () => {
                   <p className="text-gray-600">
                     {plan.description}
                   </p>
+                  <div className="flex flex-wrap gap-2">
+                    <div className="flex items-center gap-1 text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full">
+                      <Calendar className="h-3 w-3" />
+                      <span>Completion: {plan.completionYear}</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full">
+                      <Building className="h-3 w-3" />
+                      <span>Budget: {plan.budget}</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded-full">
+                      <MapPin className="h-3 w-3" />
+                      <span>{plan.location}</span>
+                    </div>
+                  </div>
                 </div>
                 <div className="space-y-4">
                   <h3 className="font-semibold text-lg">Key Initiatives</h3>

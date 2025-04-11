@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Layout from "../components/layout/Layout";
@@ -18,7 +19,12 @@ import {
   Bird,
   Fish,
   Rabbit,
-  Euro
+  Euro,
+  Home,
+  ExternalLink,
+  School,
+  ShoppingBag,
+  Coffee
 } from "lucide-react";
 
 const NeighborhoodDetail = () => {
@@ -117,30 +123,38 @@ const NeighborhoodDetail = () => {
 
   const getWildlifeSpecifics = (score: number) => {
     const allSpecies = {
-      birds: ["Common Starling", "Eurasian Blue Tit", "Great Tit", "European Robin"],
-      mammals: ["Red Squirrel", "European Hedgehog", "Arctic Fox", "Brown Bear"],
-      plants: ["Silver Birch", "Norway Spruce", "Scots Pine", "Arctic Bramble"],
-      parks: ["Central Park", "Lakeside Park", "Forest Reserve", "Botanical Gardens"]
+      birds: ["Common Starling", "Eurasian Blue Tit", "Great Tit", "European Robin", "Common Swift", "House Sparrow"],
+      mammals: ["Red Squirrel", "European Hedgehog", "Arctic Fox", "Brown Bear", "Forest Reindeer", "Eurasian Lynx"],
+      plants: ["Silver Birch", "Norway Spruce", "Scots Pine", "Arctic Bramble", "Lingonberry", "Cloudberry", "Wild Rosemary"],
+      parks: ["Central Park", "Lakeside Park", "Forest Reserve", "Botanical Gardens", "Riverside Walk", "Nature Trail"]
     };
     
     const count = Math.floor(score / 20) + 1;
     
     return {
-      birds: allSpecies.birds.slice(0, count),
-      mammals: allSpecies.mammals.slice(0, count),
-      plants: allSpecies.plants.slice(0, count),
+      birds: allSpecies.birds.slice(0, Math.min(count + 1, allSpecies.birds.length)),
+      mammals: allSpecies.mammals.slice(0, Math.min(count, allSpecies.mammals.length)),
+      plants: allSpecies.plants.slice(0, Math.min(count + 1, allSpecies.plants.length)),
       parks: allSpecies.parks.slice(0, Math.min(count, allSpecies.parks.length))
     };
   };
 
   const wildlifeData = neighborhood ? getWildlifeSpecifics(neighborhood.factors.wildlife.score) : null;
 
+  const getNearbyAmenities = () => {
+    return [
+      { name: "Schools", count: Math.floor(Math.random() * 5) + 1, icon: <School className="h-4 w-4" /> },
+      { name: "Shopping Centers", count: Math.floor(Math.random() * 3) + 1, icon: <ShoppingBag className="h-4 w-4" /> },
+      { name: "Cafés", count: Math.floor(Math.random() * 6) + 2, icon: <Coffee className="h-4 w-4" /> }
+    ];
+  };
+
   return (
     <Layout>
       <div 
         className="h-64 bg-cover bg-center relative"
         style={{ 
-          backgroundImage: neighborhood.imageUrl 
+          backgroundImage: neighborhood?.imageUrl 
             ? `url(${neighborhood.imageUrl})` 
             : "url(https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce)"
         }}
@@ -149,10 +163,10 @@ const NeighborhoodDetail = () => {
         <div className="container mx-auto px-4 h-full flex flex-col justify-end pb-6 relative z-10">
           <div className="flex items-center text-white mb-2">
             <MapPin size={16} className="mr-1" />
-            <span>{neighborhood.city}, Finland</span>
+            <span>{neighborhood?.city}, Finland</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-white">
-            {neighborhood.name}
+            {neighborhood?.name}
           </h1>
         </div>
       </div>
@@ -162,13 +176,13 @@ const NeighborhoodDetail = () => {
           <div className="lg:col-span-2">
             <Card>
               <CardHeader>
-                <CardTitle>About {neighborhood.name}</CardTitle>
+                <CardTitle>About {neighborhood?.name}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 mb-6">{neighborhood.description}</p>
+                <p className="text-gray-700 mb-6">{neighborhood?.description}</p>
                 <h3 className="font-semibold text-lg mb-4">Environmental Factors</h3>
                 <div className="space-y-5">
-                  {Object.entries(neighborhood.factors).map(([key, factor]) => {
+                  {neighborhood && Object.entries(neighborhood.factors).map(([key, factor]) => {
                     if (key === "languages" || key === "recreationOptions") return null;
                     
                     if (Array.isArray(factor) || !('name' in factor)) return null;
@@ -238,17 +252,30 @@ const NeighborhoodDetail = () => {
                               </ul>
                             </div>
                           </div>
-                          <div className="mt-3">
-                            <div className="flex items-center gap-1 mb-2">
-                              <TreeDeciduous className="h-4 w-4 text-finland-blue" />
-                              <h4 className="text-sm font-medium">Green Spaces</h4>
+                          <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                              <div className="flex items-center gap-1 mb-2">
+                                <TreeDeciduous className="h-4 w-4 text-finland-blue" />
+                                <h4 className="text-sm font-medium">Common Flora</h4>
+                              </div>
+                              <ul className="text-xs pl-6 list-disc">
+                                {wildlifeData.plants.map((plant, i) => (
+                                  <li key={i}>{plant}</li>
+                                ))}
+                              </ul>
                             </div>
-                            <div className="flex flex-wrap gap-2">
-                              {wildlifeData.parks.map((park, i) => (
-                                <span key={i} className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">
-                                  {park}
-                                </span>
-                              ))}
+                            <div>
+                              <div className="flex items-center gap-1 mb-2">
+                                <TreeDeciduous className="h-4 w-4 text-finland-blue" />
+                                <h4 className="text-sm font-medium">Green Spaces</h4>
+                              </div>
+                              <div className="flex flex-wrap gap-2">
+                                {wildlifeData.parks.map((park, i) => (
+                                  <span key={i} className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">
+                                    {park}
+                                  </span>
+                                ))}
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -279,6 +306,55 @@ const NeighborhoodDetail = () => {
                 </div>
               </CardContent>
             </Card>
+            
+            <Card className="mt-6">
+              <CardHeader>
+                <CardTitle>Property Listings</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[1, 2, 3, 4].map((index) => (
+                    <div key={index} className="border rounded-md overflow-hidden">
+                      <div className="h-40 bg-muted relative">
+                        <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                          Property Image Placeholder
+                        </div>
+                        <div className="absolute top-2 right-2 bg-finland-blue/90 text-white px-2 py-1 rounded text-xs">
+                          €{Math.floor(Math.random() * 400) + 100},000
+                        </div>
+                      </div>
+                      <div className="p-3">
+                        <h4 className="font-medium text-sm">{Math.floor(Math.random() * 120) + 30} m² Apartment</h4>
+                        <p className="text-xs text-muted-foreground mb-2">{Math.floor(Math.random() * 3) + 1} bedroom, {Math.floor(Math.random() * 2) + 1} bathroom</p>
+                        <a 
+                          href="https://www.oikotie.fi/en" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="flex items-center text-xs text-finland-blue gap-1 mt-2"
+                        >
+                          <Home className="h-3 w-3" />
+                          <span>View on Oikotie.fi</span>
+                          <ExternalLink className="h-3 w-3" />
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4 flex justify-center">
+                  <a 
+                    href={`https://www.oikotie.fi/en/search/?locations=[{"id":"Helsinki"}]`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center"
+                  >
+                    <Button variant="outline" className="gap-2">
+                      View All Properties
+                      <ExternalLink className="h-4 w-4" />
+                    </Button>
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           <div className="space-y-6">
@@ -291,40 +367,40 @@ const NeighborhoodDetail = () => {
                   <div>
                     <div className="flex justify-between mb-1">
                       <span>Finnish</span>
-                      <span>{neighborhood.factors.languages.finnish}%</span>
+                      <span>{neighborhood?.factors.languages.finnish}%</span>
                     </div>
                     <Progress
-                      value={neighborhood.factors.languages.finnish}
+                      value={neighborhood?.factors.languages.finnish}
                       className="h-2"
                     />
                   </div>
                   <div>
                     <div className="flex justify-between mb-1">
                       <span>Swedish</span>
-                      <span>{neighborhood.factors.languages.swedish}%</span>
+                      <span>{neighborhood?.factors.languages.swedish}%</span>
                     </div>
                     <Progress
-                      value={neighborhood.factors.languages.swedish}
+                      value={neighborhood?.factors.languages.swedish}
                       className="h-2"
                     />
                   </div>
                   <div>
                     <div className="flex justify-between mb-1">
                       <span>English</span>
-                      <span>{neighborhood.factors.languages.english}%</span>
+                      <span>{neighborhood?.factors.languages.english}%</span>
                     </div>
                     <Progress
-                      value={neighborhood.factors.languages.english}
+                      value={neighborhood?.factors.languages.english}
                       className="h-2"
                     />
                   </div>
                   <div>
                     <div className="flex justify-between mb-1">
                       <span>Other</span>
-                      <span>{neighborhood.factors.languages.other}%</span>
+                      <span>{neighborhood?.factors.languages.other}%</span>
                     </div>
                     <Progress
-                      value={neighborhood.factors.languages.other}
+                      value={neighborhood?.factors.languages.other}
                       className="h-2"
                     />
                   </div>
@@ -338,7 +414,7 @@ const NeighborhoodDetail = () => {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {neighborhood.factors.recreationOptions.map((option, idx) => (
+                  {neighborhood?.factors.recreationOptions.map((option, idx) => (
                     <div
                       key={idx}
                       className="px-3 py-1 bg-finland-light-blue text-finland-blue rounded-full text-sm"
@@ -369,6 +445,10 @@ const NeighborhoodDetail = () => {
                         <span className="h-3 w-3 rounded-full bg-green-500"></span>
                         <span>Green Spaces</span>
                       </div>
+                      <div className="flex items-center gap-2 text-xs mt-1">
+                        <span className="h-3 w-3 rounded-full bg-red-500"></span>
+                        <span>Property Listings</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -380,6 +460,56 @@ const NeighborhoodDetail = () => {
                 </div>
               </CardContent>
             </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Nearby Amenities</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  {getNearbyAmenities().map((amenity, index) => (
+                    <div key={index} className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        {amenity.icon}
+                        <span>{amenity.name}</span>
+                      </div>
+                      <span className="text-sm font-medium">{amenity.count}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Market Trends</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <div>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-sm">Price change (1 yr)</span>
+                      <span className="text-sm font-medium text-green-600">+2.4%</span>
+                    </div>
+                    <Progress value={60} className="h-2" />
+                  </div>
+                  <div>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-sm">Avg. time on market</span>
+                      <span className="text-sm font-medium">45 days</span>
+                    </div>
+                    <Progress value={45} className="h-2" />
+                  </div>
+                  <div>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-sm">Demand level</span>
+                      <span className="text-sm font-medium text-amber-600">Medium</span>
+                    </div>
+                    <Progress value={65} className="h-2" />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
 
@@ -387,15 +517,24 @@ const NeighborhoodDetail = () => {
           <Link to="/results">
             <Button variant="outline">Back to Results</Button>
           </Link>
-          <a
-            href={`https://www.google.com/maps/search/${encodeURIComponent(
-              neighborhood.name + " " + neighborhood.city + " Finland"
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button>View on Map</Button>
-          </a>
+          <div className="flex gap-2">
+            <a
+              href={`https://www.oikotie.fi/en/search/?locations=[{"id":"${neighborhood?.city}"}]`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="outline">View Oikotie Listings</Button>
+            </a>
+            <a
+              href={`https://www.google.com/maps/search/${encodeURIComponent(
+                neighborhood?.name + " " + neighborhood?.city + " Finland"
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button>View on Map</Button>
+            </a>
+          </div>
         </div>
       </div>
     </Layout>
