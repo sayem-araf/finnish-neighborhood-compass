@@ -23,10 +23,15 @@ const chartColors = {
   diversity: "#8B5CF6",
 };
 
-const FactorComparisonChart = () => {
-  // State for selected city
-  const [selectedCity, setSelectedCity] = useState("Helsinki");
-  
+interface FactorComparisonChartProps {
+  selectedCity: string;
+  onCityChange: (city: string) => void;
+}
+
+const FactorComparisonChart = ({ 
+  selectedCity,
+  onCityChange
+}: FactorComparisonChartProps) => {
   // Get neighborhoods for the selected city
   const cityNeighborhoods = mockNeighborhoods.filter(
     (n) => n.city === selectedCity
@@ -69,7 +74,7 @@ const FactorComparisonChart = () => {
         <select 
           className="px-2 py-1 text-sm border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
           value={selectedCity}
-          onChange={(e) => setSelectedCity(e.target.value)}
+          onChange={(e) => onCityChange(e.target.value)}
         >
           {availableCities.map((city) => (
             <option key={city} value={city}>
