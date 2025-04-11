@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -18,6 +19,9 @@ import {
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Index = () => {
+  // State for selected city - shared between components
+  const [selectedCity, setSelectedCity] = useState("Helsinki");
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -49,12 +53,15 @@ const Index = () => {
           
           {/* Stats Cards */}
           <div className="mb-8">
-            <NeighborhoodStats />
+            <NeighborhoodStats selectedCity={selectedCity} />
           </div>
           
           {/* Charts & Map */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <FactorComparisonChart />
+            <FactorComparisonChart 
+              selectedCity={selectedCity}
+              onCityChange={setSelectedCity}
+            />
             <LanguageDistribution />
           </div>
           

@@ -4,20 +4,39 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { mockNeighborhoods } from "@/data/mockNeighborhoods";
 import { Users, MapPin, CloudSun, VolumeX } from "lucide-react";
 
-const NeighborhoodStats = () => {
-  // Calculate aggregate stats from mock data
-  const totalNeighborhoods = mockNeighborhoods.length;
-  const uniqueCities = [...new Set(mockNeighborhoods.map(n => n.city))].length;
+interface NeighborhoodStatsProps {
+  selectedCity: string;
+}
+
+const NeighborhoodStats = ({ selectedCity }: NeighborhoodStatsProps) => {
+  // Filter neighborhoods by selected city
+  const cityNeighborhoods = mockNeighborhoods.filter(
+    (n) => n.city === selectedCity
+  );
   
-  // Calculate average air quality
+  // Calculate stats for the selected city
+  const totalNeighborhoods = cityNeighborhoods.length;
+  
+  // Calculate average air quality for the selected city
   const avgAirQuality = Math.round(
-    mockNeighborhoods.reduce((sum, n) => sum + n.factors.airQuality.score, 0) / totalNeighborhoods
+    cityNeighborhoods.reduce((sum, n) => sum + n.factors.airQuality.score, 0) / 
+    (totalNeighborhoods || 1)
   );
   
   // Calculate average noise level (inverted for quietness score)
   const avgQuietness = Math.round(
-    mockNeighborhoods.reduce((sum, n) => sum + n.factors.noiseLevel.score, 0) / totalNeighborhoods
+    cityNeighborhoods.reduce((sum, n) => sum + n.factors.noiseLevel.score, 0) / 
+    (totalNeighborhoods || 1)
   );
+
+  // Calculate language diversity (count of languages spoken)
+  const languagesCount = cityNeighborhoods.length > 0 ? 
+    cityNeighborhoods[0].languages.length : 4;
+  
+  // Get most common languages
+  const languages = cityNeighborhoods.length > 0 ? 
+    cityNeighborhoods[0].languages.slice(0, 3).join(", ") + " & others" : 
+    "Finnish, Swedish, English & others";
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -29,7 +48,7 @@ const NeighborhoodStats = () => {
         <CardContent>
           <div className="text-2xl font-bold">{totalNeighborhoods}</div>
           <p className="text-xs text-muted-foreground">
-            Across {uniqueCities} cities in Finland
+            In {selectedCity}, Finland
           </p>
         </CardContent>
       </Card>
@@ -42,7 +61,7 @@ const NeighborhoodStats = () => {
         <CardContent>
           <div className="text-2xl font-bold">{avgAirQuality}/100</div>
           <p className="text-xs text-muted-foreground">
-            Based on environmental data
+            Based on {selectedCity} environmental data
           </p>
         </CardContent>
       </Card>
@@ -55,7 +74,7 @@ const NeighborhoodStats = () => {
         <CardContent>
           <div className="text-2xl font-bold">{avgQuietness}/100</div>
           <p className="text-xs text-muted-foreground">
-            Based on noise level readings
+            Based on {selectedCity} noise level readings
           </p>
         </CardContent>
       </Card>
@@ -66,9 +85,9 @@ const NeighborhoodStats = () => {
           <Users className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">4</div>
+          <div className="text-2xl font-bold">{languagesCount}</div>
           <p className="text-xs text-muted-foreground">
-            Finnish, Swedish, English & others
+            {languages}
           </p>
         </CardContent>
       </Card>
