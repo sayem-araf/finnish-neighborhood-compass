@@ -13,8 +13,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
-// Using a different token that should work - this is just for demo purposes
-const defaultMapboxToken = "pk.eyJ1IjoibG92YWJsZS1haS1kZW1vIiwiYSI6ImNsdXc5aXR3bzBvMXEycXBnNTN2NXdla28ifQ.QXKLiTdxck2KvYx5DQAGtA";
+// Updated token that should work for this domain
+const defaultMapboxToken = "pk.eyJ1IjoibG92YWJsZS1haS1kZW1vIiwiYSI6ImNsczl1cWI0ZzBiajcya28wdmRjYWNydHUifQ.M7AM3ImVzGQBY7aPmcqTzQ";
 
 const locations = [
   { 
@@ -22,35 +22,35 @@ const locations = [
     lat: 60.1699, 
     lng: 24.9384, 
     description: "Capital and largest city of Finland",
-    imageUrl: "https://images.unsplash.com/photo-1582180449047-e4dd8a7359cc?q=80&w=2070&auto=format&fit=crop"
+    imageUrl: "https://images.unsplash.com/photo-1565025093186-cb73fc027f1a?q=80&w=2070&auto=format&fit=crop"
   },
   { 
     name: "Espoo", 
     lat: 60.2055, 
     lng: 24.6559, 
     description: "Second largest city in Finland",
-    imageUrl: "https://images.unsplash.com/photo-1600240201373-21f4dc873cdf?q=80&w=2070&auto=format&fit=crop"
+    imageUrl: "https://images.unsplash.com/photo-1627573002203-abf1d73cf5ad?q=80&w=2070&auto=format&fit=crop"
   },
   { 
     name: "Tampere", 
     lat: 61.4978, 
     lng: 23.7610, 
     description: "Third largest city in Finland",
-    imageUrl: "https://images.unsplash.com/photo-1544985361-b420d7a77043?q=80&w=2070&auto=format&fit=crop"
+    imageUrl: "https://images.unsplash.com/photo-1582071002012-f93ff817ac73?q=80&w=2070&auto=format&fit=crop"
   },
   { 
     name: "Turku", 
     lat: 60.4518, 
     lng: 22.2666, 
     description: "Oldest city in Finland",
-    imageUrl: "https://images.unsplash.com/photo-1564504856881-7e19f21cc37c?q=80&w=2070&auto=format&fit=crop"
+    imageUrl: "https://images.unsplash.com/photo-1565944692535-b96b8bc2e938?q=80&w=2070&auto=format&fit=crop"
   },
   { 
     name: "Kallio", 
     lat: 60.1841, 
     lng: 24.9494, 
     description: "Trendy district in Helsinki",
-    imageUrl: "https://images.unsplash.com/photo-1582180449047-e4dd8a7359cc?q=80&w=2070&auto=format&fit=crop"
+    imageUrl: "https://images.unsplash.com/photo-1523997826399-965f6aa58901?q=80&w=2071&auto=format&fit=crop"
   }
 ];
 
