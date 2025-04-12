@@ -45,7 +45,7 @@ const developmentPlans: DevelopmentPlan[] = [
     city: "Espoo",
     title: "Espoo Growth Strategy 2025",
     description: "Espoo is investing in infrastructure and community development to support its growing population.",
-    imageUrl: "https://images.unsplash.com/photo-1669715357074-9ef03f2e42a6?q=80&w=2070&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1600240201373-21f4dc873cdf?q=80&w=2070&auto=format&fit=crop",
     initiatives: [
       "Metro line western extension",
       "New educational campus in Otaniemi",

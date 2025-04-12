@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Layout from "../components/layout/Layout";
@@ -140,6 +139,43 @@ const NeighborhoodDetail = () => {
   };
 
   const wildlifeData = neighborhood ? getWildlifeSpecifics(neighborhood.factors.wildlife.score) : null;
+
+  const getPropertyListings = () => {
+    return [
+      {
+        id: 1,
+        image: "https://images.unsplash.com/photo-1551361415-69c87c7c1a6c?q=80&w=2070&auto=format&fit=crop",
+        price: `€${Math.floor(Math.random() * 400) + 100},000`,
+        size: `${Math.floor(Math.random() * 120) + 30} m²`,
+        bedrooms: Math.floor(Math.random() * 3) + 1,
+        bathrooms: Math.floor(Math.random() * 2) + 1
+      },
+      {
+        id: 2,
+        image: "https://images.unsplash.com/photo-1596204976717-1a9ff47f74ef?q=80&w=2070&auto=format&fit=crop",
+        price: `€${Math.floor(Math.random() * 400) + 100},000`,
+        size: `${Math.floor(Math.random() * 120) + 30} m²`,
+        bedrooms: Math.floor(Math.random() * 3) + 1,
+        bathrooms: Math.floor(Math.random() * 2) + 1
+      },
+      {
+        id: 3,
+        image: "https://images.unsplash.com/photo-1580237072617-771c3ecc4a24?q=80&w=2070&auto=format&fit=crop",
+        price: `€${Math.floor(Math.random() * 400) + 100},000`,
+        size: `${Math.floor(Math.random() * 120) + 30} m²`,
+        bedrooms: Math.floor(Math.random() * 3) + 1,
+        bathrooms: Math.floor(Math.random() * 2) + 1
+      },
+      {
+        id: 4,
+        image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2070&auto=format&fit=crop",
+        price: `€${Math.floor(Math.random() * 400) + 100},000`,
+        size: `${Math.floor(Math.random() * 120) + 30} m²`,
+        bedrooms: Math.floor(Math.random() * 3) + 1,
+        bathrooms: Math.floor(Math.random() * 2) + 1
+      }
+    ];
+  };
 
   const getNearbyAmenities = () => {
     return [
@@ -313,19 +349,21 @@ const NeighborhoodDetail = () => {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {[1, 2, 3, 4].map((index) => (
-                    <div key={index} className="border rounded-md overflow-hidden">
+                  {getPropertyListings().map((property) => (
+                    <div key={property.id} className="border rounded-md overflow-hidden">
                       <div className="h-40 bg-muted relative">
-                        <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                          Property Image Placeholder
-                        </div>
+                        <img 
+                          src={property.image} 
+                          alt="Property" 
+                          className="w-full h-full object-cover"
+                        />
                         <div className="absolute top-2 right-2 bg-finland-blue/90 text-white px-2 py-1 rounded text-xs">
-                          €{Math.floor(Math.random() * 400) + 100},000
+                          {property.price}
                         </div>
                       </div>
                       <div className="p-3">
-                        <h4 className="font-medium text-sm">{Math.floor(Math.random() * 120) + 30} m² Apartment</h4>
-                        <p className="text-xs text-muted-foreground mb-2">{Math.floor(Math.random() * 3) + 1} bedroom, {Math.floor(Math.random() * 2) + 1} bathroom</p>
+                        <h4 className="font-medium text-sm">{property.size} Apartment</h4>
+                        <p className="text-xs text-muted-foreground mb-2">{property.bedrooms} bedroom, {property.bathrooms} bathroom</p>
                         <a 
                           href="https://www.oikotie.fi/en" 
                           target="_blank" 
@@ -342,7 +380,7 @@ const NeighborhoodDetail = () => {
                 </div>
                 <div className="mt-4 flex justify-center">
                   <a 
-                    href={`https://www.oikotie.fi/en/search/?locations=[{"id":"Helsinki"}]`}
+                    href={`https://www.oikotie.fi/en/search/?locations=[{"id":"${neighborhood?.city}"}]`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center"
@@ -432,31 +470,44 @@ const NeighborhoodDetail = () => {
               </CardHeader>
               <CardContent>
                 <div className="aspect-video bg-muted rounded-lg overflow-hidden relative">
-                  <div className="h-full w-full bg-finland-snow border border-border rounded-md overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <p className="text-sm text-muted-foreground">Interactive map would be shown here</p>
+                  <img 
+                    src={`https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/${
+                      neighborhood?.city === 'Helsinki' ? '24.9384,60.1699' : 
+                      neighborhood?.city === 'Espoo' ? '24.6559,60.2055' :
+                      neighborhood?.city === 'Tampere' ? '23.7610,61.4978' :
+                      '24.9384,60.1699'
+                    },12,0/400x300?access_token=pk.eyJ1IjoibG92YWJsZS1haS1kZW1vIiwiYSI6ImNsdXc5MG82eDBrMjUyaW82YWRtZXp4djcifQ.h6qKwrmNqZ6NaXXUYfKpOA`} 
+                    alt="Neighborhood map" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-2 right-2 bg-white p-2 rounded-md shadow-md">
+                    <div className="flex items-center gap-2 text-xs">
+                      <span className="h-3 w-3 rounded-full bg-finland-blue"></span>
+                      <span>Current Location</span>
                     </div>
-                    <div className="absolute top-2 right-2 bg-white p-2 rounded-md shadow-md">
-                      <div className="flex items-center gap-2 text-xs">
-                        <span className="h-3 w-3 rounded-full bg-finland-blue"></span>
-                        <span>Current Location</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-xs mt-1">
-                        <span className="h-3 w-3 rounded-full bg-green-500"></span>
-                        <span>Green Spaces</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-xs mt-1">
-                        <span className="h-3 w-3 rounded-full bg-red-500"></span>
-                        <span>Property Listings</span>
-                      </div>
+                    <div className="flex items-center gap-2 text-xs mt-1">
+                      <span className="h-3 w-3 rounded-full bg-green-500"></span>
+                      <span>Green Spaces</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs mt-1">
+                      <span className="h-3 w-3 rounded-full bg-red-500"></span>
+                      <span>Property Listings</span>
                     </div>
                   </div>
                 </div>
                 <div className="mt-3">
-                  <Button variant="outline" size="sm" className="w-full">
-                    <MapPin className="h-4 w-4 mr-2" />
-                    View Interactive Map
-                  </Button>
+                  <a 
+                    href={`https://www.google.com/maps/search/${encodeURIComponent(
+                      neighborhood?.name + " " + neighborhood?.city + " Finland"
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="outline" size="sm" className="w-full">
+                      <MapPin className="h-4 w-4 mr-2" />
+                      View Interactive Map
+                    </Button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
