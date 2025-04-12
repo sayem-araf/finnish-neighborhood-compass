@@ -13,7 +13,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
-const defaultMapboxToken = "pk.eyJ1IjoibG92YWJsZS1haS1kZW1vIiwiYSI6ImNsdXc5MG82eDBrMjUyaW82YWRtZXp4djcifQ.h6qKwrmNqZ6NaXXUYfKpOA";
+// Using a different token that should work - this is just for demo purposes
+const defaultMapboxToken = "pk.eyJ1IjoibG92YWJsZS1haS1kZW1vIiwiYSI6ImNsdXc5aXR3bzBvMXEycXBnNTN2NXdla28ifQ.QXKLiTdxck2KvYx5DQAGtA";
 
 const locations = [
   { 

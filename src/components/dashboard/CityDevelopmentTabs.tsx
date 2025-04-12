@@ -28,7 +28,7 @@ const developmentPlans: DevelopmentPlan[] = [
     city: "Helsinki",
     title: "Helsinki Vision 2035",
     description: "Helsinki is implementing a comprehensive urban development strategy focused on sustainability, mobility, and quality of living.",
-    imageUrl: "https://images.unsplash.com/photo-1561366184-75b4fd0ea238?q=80&w=1974&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1565025093186-cb73fc027f1a?q=80&w=2070&auto=format&fit=crop",
     initiatives: [
       "Carbon-neutral city by 2035",
       "New tram lines connecting suburbs to city center",
@@ -45,7 +45,7 @@ const developmentPlans: DevelopmentPlan[] = [
     city: "Espoo",
     title: "Espoo Growth Strategy 2025",
     description: "Espoo is investing in infrastructure and community development to support its growing population.",
-    imageUrl: "https://images.unsplash.com/photo-1600240201373-21f4dc873cdf?q=80&w=2070&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1627573002203-abf1d73cf5ad?q=80&w=2070&auto=format&fit=crop",
     initiatives: [
       "Metro line western extension",
       "New educational campus in Otaniemi",
@@ -62,7 +62,7 @@ const developmentPlans: DevelopmentPlan[] = [
     city: "Tampere",
     title: "Tampere Forward 2030",
     description: "Tampere is focusing on becoming Finland's innovation hub while maintaining its unique cultural heritage and natural surroundings.",
-    imageUrl: "https://images.unsplash.com/photo-1544985361-b420d7a77043?q=80&w=2070&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1582071002012-f93ff817ac73?q=80&w=2070&auto=format&fit=crop",
     initiatives: [
       "Tram network expansion to western districts",
       "Transformation of Hiedanranta into a smart district",
@@ -79,7 +79,7 @@ const developmentPlans: DevelopmentPlan[] = [
     city: "Turku",
     title: "Turku Urban Blueprint 2029",
     description: "Turku is revitalizing its historic areas while advancing sustainable urban planning principles and riverside development.",
-    imageUrl: "https://images.unsplash.com/photo-1564504856881-7e19f21cc37c?q=80&w=2070&auto=format&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1565944692535-b96b8bc2e938?q=80&w=2070&auto=format&fit=crop",
     initiatives: [
       "One Hour Train connection to Helsinki",
       "Riverside cultural zone enhancement",
