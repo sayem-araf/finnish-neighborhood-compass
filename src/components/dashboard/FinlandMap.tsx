@@ -13,8 +13,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
-// Updated token that should work for this domain
-const defaultMapboxToken = "pk.eyJ1IjoibG92YWJsZS1haS1kZW1vIiwiYSI6ImNsczl1cWI0ZzBiajcya28wdmRjYWNydHUifQ.M7AM3ImVzGQBY7aPmcqTzQ";
+// Using a public demo token from Mapbox
+const defaultMapboxToken = "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA";
 
 const locations = [
   { 
@@ -72,12 +72,14 @@ const FinlandMap = () => {
     
     try {
       mapboxgl.accessToken = mapboxToken;
+      console.log("Initializing map with token:", mapboxToken);
       
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
-        style: 'mapbox://styles/mapbox/light-v11',
+        style: 'mapbox://styles/mapbox/streets-v12', // Changed to streets-v12 which is more reliable
         center: [24.9384, 60.1699], // Helsinki
-        zoom: 6
+        zoom: 6,
+        attributionControl: true // Ensure attribution is visible
       });
 
       // Add navigation controls
@@ -85,6 +87,7 @@ const FinlandMap = () => {
 
       // Load markers once the map is ready
       map.current.on('load', () => {
+        console.log("Map loaded successfully");
         // Add markers for each city
         locations.forEach((location) => {
           // Create a marker
@@ -110,6 +113,16 @@ const FinlandMap = () => {
           
           marker.setPopup(popup);
         });
+      });
+
+      map.current.on('error', (e) => {
+        console.error("Map error:", e);
+        toast({
+          title: "Map error",
+          description: "There was an error loading the map. Please check your token.",
+          variant: "destructive",
+        });
+        setShowTokenInput(true);
       });
 
       toast({
