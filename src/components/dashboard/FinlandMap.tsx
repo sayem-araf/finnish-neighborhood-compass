@@ -1,8 +1,5 @@
-
-import React, { useRef, useEffect, useState } from "react";
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
-
+import { useState } from "react";
+import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 import {
   Card,
   CardContent,
@@ -13,8 +10,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
-// Using a public demo token from Mapbox
-const defaultMapboxToken = "pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA";
+// using a demo api key - replace with your own in production
+const defaultGoogleMapsApiKey = "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg";
 
 const locations = [
   { 
@@ -54,111 +51,35 @@ const locations = [
   }
 ];
 
+const mapContainerStyle = {
+  width: '100%',
+  height: '300px'
+};
+
+const center = {
+  lat: 60.1699, // Helsinki
+  lng: 24.9384
+};
+
 const FinlandMap = () => {
-  const mapContainer = useRef<HTMLDivElement | null>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
-  const [mapboxToken, setMapboxToken] = useState<string>(defaultMapboxToken);
+  const [apiKey, setApiKey] = useState<string>(defaultGoogleMapsApiKey);
   const [tokenInput, setTokenInput] = useState<string>("");
   const [showTokenInput, setShowTokenInput] = useState<boolean>(false);
+  const [selectedLocation, setSelectedLocation] = useState<any>(null);
   const { toast } = useToast();
-
-  useEffect(() => {
-    if (mapContainer.current === null) return;
-    
-    if (map.current) {
-      map.current.remove();
-      map.current = null;
-    }
-    
-    try {
-      mapboxgl.accessToken = mapboxToken;
-      console.log("Initializing map with token:", mapboxToken);
-      
-      map.current = new mapboxgl.Map({
-        container: mapContainer.current,
-        style: 'mapbox://styles/mapbox/streets-v12', // Changed to streets-v12 which is more reliable
-        center: [24.9384, 60.1699], // Helsinki
-        zoom: 6,
-        attributionControl: true // Ensure attribution is visible
-      });
-
-      // Add navigation controls
-      map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
-
-      // Load markers once the map is ready
-      map.current.on('load', () => {
-        console.log("Map loaded successfully");
-        // Add markers for each city
-        locations.forEach((location) => {
-          // Create a marker
-          const marker = new mapboxgl.Marker({
-            color: "#3B82F6" // Finland blue
-          })
-            .setLngLat([location.lng, location.lat])
-            .addTo(map.current!);
-          
-          // Add popup with image
-          const popup = new mapboxgl.Popup({ offset: 25, maxWidth: '300px' })
-            .setHTML(`
-              <div style="text-align: center;">
-                <strong style="font-size: 16px;">${location.name}</strong>
-                <p style="margin: 5px 0;">${location.description}</p>
-                <img 
-                  src="${location.imageUrl}" 
-                  alt="${location.name}" 
-                  style="width: 100%; height: 120px; object-fit: cover; border-radius: 4px; margin-top: 8px;"
-                />
-              </div>
-            `);
-          
-          marker.setPopup(popup);
-        });
-      });
-
-      map.current.on('error', (e) => {
-        console.error("Map error:", e);
-        toast({
-          title: "Map error",
-          description: "There was an error loading the map. Please check your token.",
-          variant: "destructive",
-        });
-        setShowTokenInput(true);
-      });
-
-      toast({
-        title: "Map loaded successfully",
-        description: "Click on markers to see city details.",
-      });
-    } catch (error) {
-      console.error("Error initializing map:", error);
-      toast({
-        title: "Error loading map",
-        description: "Please check your Mapbox token and try again.",
-        variant: "destructive",
-      });
-      setShowTokenInput(true);
-    }
-
-    // Clean up on unmount
-    return () => {
-      if (map.current) {
-        map.current.remove();
-      }
-    };
-  }, [mapboxToken, toast]);
 
   const handleTokenUpdate = () => {
     if (tokenInput) {
-      setMapboxToken(tokenInput);
+      setApiKey(tokenInput);
       setShowTokenInput(false);
       toast({
-        title: "Token updated",
-        description: "Map will reload with your Mapbox token.",
+        title: "API Key updated",
+        description: "Map will reload with your Google Maps API key.",
       });
     } else {
       toast({
-        title: "Token required",
-        description: "Please enter a valid Mapbox token.",
+        title: "API Key required",
+        description: "Please enter a valid Google Maps API key.",
         variant: "destructive",
       });
     }
@@ -173,19 +94,19 @@ const FinlandMap = () => {
         {showTokenInput ? (
           <div className="mb-4 space-y-2">
             <p className="text-sm text-muted-foreground">
-              Please enter your Mapbox token to display the map. You can get one at{" "}
+              Please enter your Google Maps API key to display the map. You can get one at{" "}
               <a 
-                href="https://mapbox.com/" 
+                href="https://console.cloud.google.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline"
               >
-                mapbox.com
+                Google Cloud Console
               </a>
             </p>
             <div className="flex gap-2">
               <Input
-                placeholder="Enter your Mapbox token"
+                placeholder="Enter your Google Maps API key"
                 value={tokenInput}
                 onChange={(e) => setTokenInput(e.target.value)}
               />
@@ -197,13 +118,48 @@ const FinlandMap = () => {
             className="text-xs text-muted-foreground mb-2 hover:underline"
             onClick={() => setShowTokenInput(true)}
           >
-            Change Mapbox Token
+            Change Google Maps API Key
           </button>
         )}
-        <div 
-          ref={mapContainer} 
-          className="w-full h-[300px] rounded-md overflow-hidden"
-        />
+        <div className="w-full h-[300px] rounded-md overflow-hidden">
+          <LoadScript googleMapsApiKey={apiKey}>
+            <GoogleMap
+              mapContainerStyle={mapContainerStyle}
+              center={center}
+              zoom={6}
+              options={{
+                streetViewControl: false,
+                mapTypeControl: false,
+                fullscreenControl: false
+              }}
+            >
+              {locations.map((location) => (
+                <Marker
+                  key={location.name}
+                  position={{ lat: location.lat, lng: location.lng }}
+                  onClick={() => setSelectedLocation(location)}
+                />
+              ))}
+              
+              {selectedLocation && (
+                <InfoWindow
+                  position={{ lat: selectedLocation.lat, lng: selectedLocation.lng }}
+                  onCloseClick={() => setSelectedLocation(null)}
+                >
+                  <div className="p-2">
+                    <h3 className="font-bold">{selectedLocation.name}</h3>
+                    <p className="text-sm">{selectedLocation.description}</p>
+                    <img 
+                      src={selectedLocation.imageUrl} 
+                      alt={selectedLocation.name}
+                      className="w-full h-24 object-cover mt-2 rounded"
+                    />
+                  </div>
+                </InfoWindow>
+              )}
+            </GoogleMap>
+          </LoadScript>
+        </div>
       </CardContent>
     </Card>
   );
