@@ -144,7 +144,8 @@ const NeighborhoodDetail = () => {
     return [
       {
         id: 1,
-        image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2948&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
+        image: "https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         price: `€${Math.floor(Math.random() * 400) + 100},000`,
         size: `${Math.floor(Math.random() * 120) + 30} m²`,
         bedrooms: Math.floor(Math.random() * 3) + 1,
@@ -471,12 +472,17 @@ const NeighborhoodDetail = () => {
               <CardContent>
                 <div className="aspect-video bg-muted rounded-lg overflow-hidden relative">
                   <img 
-                    src={`https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/${
-                      neighborhood?.city === 'Helsinki' ? '24.9384,60.1699' : 
-                      neighborhood?.city === 'Espoo' ? '24.6559,60.2055' :
-                      neighborhood?.city === 'Tampere' ? '23.7610,61.4978' :
-                      '24.9384,60.1699'
-                    },12,0/400x300?access_token=pk.eyJ1IjoibG92YWJsZS1haS1kZW1vIiwiYSI6ImNsdXc5MG82eDBrMjUyaW82YWRtZXp4djcifQ.h6qKwrmNqZ6NaXXUYfKpOA`} 
+                    src={`https://maps.googleapis.com/maps/api/staticmap?center=${
+                      neighborhood?.city === 'Helsinki' ? '60.1699,24.9384' : 
+                      neighborhood?.city === 'Espoo' ? '60.2055,24.6559' :
+                      neighborhood?.city === 'Tampere' ? '61.4978,23.7610' :
+                      '60.1699,24.9384'
+                    }&zoom=12&size=400x300&markers=color:blue%7C${
+                      neighborhood?.city === 'Helsinki' ? '60.1699,24.9384' : 
+                      neighborhood?.city === 'Espoo' ? '60.2055,24.6559' :
+                      neighborhood?.city === 'Tampere' ? '61.4978,23.7610' :
+                      '60.1699,24.9384'
+                    }&key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg`} 
                     alt="Neighborhood map" 
                     className="w-full h-full object-cover"
                   />

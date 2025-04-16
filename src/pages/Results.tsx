@@ -118,7 +118,7 @@ const Results = () => {
                 style={{ 
                   backgroundImage: neighborhood.imageUrl 
                     ? `url(${neighborhood.imageUrl})` 
-                    : "url(https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce)" 
+                    : "url(https://images.unsplash.com/photo-1640078530772-b1e297ac3178?q=80&w=2748&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)" 
                 }}
               >
                 <div className="bg-black/50 text-white p-3 inline-block rounded-br-lg">

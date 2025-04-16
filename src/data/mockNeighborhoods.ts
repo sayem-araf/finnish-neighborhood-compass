@@ -1,4 +1,3 @@
-
 import { Neighborhood } from "../types/neighborhood";
 
 export const mockNeighborhoods: Neighborhood[] = [
@@ -6,7 +5,8 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "kallio-helsinki",
     name: "Kallio",
     city: "Helsinki",
-    imageUrl: "https://mediaim.expedia.com/destination/1/b98d339d9ef45d70bce6fdc069b36bc8.jpg",
+
+    imageUrl: "https://images.pexels.com/photos/31630959/pexels-photo-31630959/free-photo-of-modern-tram-at-helsinki-station-in-winter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     description:
       "Kallio is a densely populated, traditionally working-class district with a vibrant nightlife, trendy cafés and restaurants. It's known for its urban atmosphere and cultural diversity.",
     factors: {
@@ -53,7 +53,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "toolo-helsinki",
     name: "Töölö",
     city: "Helsinki",
-    imageUrl: "https://images.unsplash.com/photo-1463679936017-8002b9df539e",
+    imageUrl: "https://images.pexels.com/photos/31630960/pexels-photo-31630960/free-photo-of-helsinki-cathedral-in-winter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     description:
       "Töölö is an upscale residential district with beautiful architecture, adjacent to parks and the sea. It's known for its cultural institutions and peaceful atmosphere.",
     factors: {
@@ -100,7 +100,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "nuuksio-espoo",
     name: "Nuuksio",
     city: "Espoo",
-    imageUrl: "https://images.unsplash.com/photo-1501180083642-e65c12aee3ef",
+    imageUrl: "https://images.pexels.com/photos/31630961/pexels-photo-31630961/free-photo-of-forest-lake-in-nuuksio-national-park.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     description:
       "Nuuksio is a natural paradise with a national park, lakes and forests. The area offers peaceful living surrounded by Finland's beautiful nature.",
     factors: {
@@ -153,7 +153,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "tapiola-espoo",
     name: "Tapiola",
     city: "Espoo",
-    imageUrl: "https://images.unsplash.com/photo-1560269507-953a4370737d",
+    imageUrl: "https://images.pexels.com/photos/31630962/pexels-photo-31630962/free-photo-of-modern-architecture-in-tapiola.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     description:
       "Tapiola is a garden city with modernist architecture, green spaces, and good services. It offers a balance of urban amenities and natural surroundings.",
     factors: {
@@ -200,7 +200,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "pispala-tampere",
     name: "Pispala",
     city: "Tampere",
-    imageUrl: "https://images.unsplash.com/photo-1527268263681-19bba6cee441",
+    imageUrl: "https://images.pexels.com/photos/31630963/pexels-photo-31630963/free-photo-of-wooden-houses-in-pispala.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     description:
       "Pispala is built on a ridge between two lakes, offering stunning views. It has a bohemian atmosphere with colorful wooden houses and a strong community spirit.",
     factors: {
