@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -46,11 +45,46 @@ const locations = [
     imageUrl: "https://images.unsplash.com/photo-1565944692535-b96b8bc2e938?q=80&w=2070&auto=format&fit=crop"
   },
   { 
-    name: "Kallio", 
-    lat: 60.1841, 
-    lng: 24.9494, 
-    description: "Trendy district in Helsinki",
-    imageUrl: "https://images.unsplash.com/photo-1523997826399-965f6aa58901?q=80&w=2071&auto=format&fit=crop"
+    name: "Oulu", 
+    lat: 65.0121, 
+    lng: 25.4651, 
+    description: "Technology hub of northern Finland",
+    imageUrl: "https://images.unsplash.com/photo-1551965017-48ec04c2e1cd?q=80&w=2069&auto=format&fit=crop"
+  },
+  { 
+    name: "Jyväskylä", 
+    lat: 62.2415, 
+    lng: 25.7209, 
+    description: "University city in central Finland",
+    imageUrl: "https://images.unsplash.com/photo-1576526164505-21d6ee11d37b?q=80&w=2070&auto=format&fit=crop"
+  },
+  { 
+    name: "Lahti", 
+    lat: 60.9827, 
+    lng: 25.6612, 
+    description: "Known for winter sports and design",
+    imageUrl: "https://images.unsplash.com/photo-1611948357031-ef7bce1e6762?q=80&w=2069&auto=format&fit=crop"
+  },
+  { 
+    name: "Kuopio", 
+    lat: 62.8924, 
+    lng: 27.6772, 
+    description: "Lakeside city with rich cultural heritage",
+    imageUrl: "https://images.unsplash.com/photo-1624970612917-f3a8ce69d779?q=80&w=2069&auto=format&fit=crop"
+  },
+  { 
+    name: "Rovaniemi", 
+    lat: 66.5039, 
+    lng: 25.7294, 
+    description: "Capital of Lapland, home of Santa Claus",
+    imageUrl: "https://images.unsplash.com/photo-1669894145555-fb17e1d96971?q=80&w=2070&auto=format&fit=crop"
+  },
+  { 
+    name: "Vaasa", 
+    lat: 63.0951, 
+    lng: 21.6165, 
+    description: "Coastal city with strong Swedish influence",
+    imageUrl: "https://images.unsplash.com/photo-1623330483306-425f68206587?q=80&w=2069&auto=format&fit=crop"
   }
 ];
 
