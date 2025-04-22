@@ -23,7 +23,10 @@ import {
   ExternalLink,
   School,
   ShoppingBag,
-  Coffee
+  Coffee,
+  Briefcase,
+  Building2,
+  EuroSign
 } from "lucide-react";
 
 const NeighborhoodDetail = () => {

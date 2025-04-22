@@ -1,8 +1,16 @@
-
 export type NeighborhoodFactor = {
   name: string;
   score: number; // 0-100
   description: string;
+};
+
+export type EmploymentStats = {
+  employmentRate: number;
+  averageSalary: number;
+  majorIndustries: {
+    name: string;
+    percentage: number;
+  }[];
 };
 
 export type Neighborhood = {
@@ -11,6 +19,7 @@ export type Neighborhood = {
   city: string;
   imageUrl?: string;
   description: string;
+  employmentStats: EmploymentStats;
   factors: {
     airQuality: NeighborhoodFactor;
     noiseLevel: NeighborhoodFactor;
