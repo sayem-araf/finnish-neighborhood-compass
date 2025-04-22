@@ -200,7 +200,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "pispala-tampere",
     name: "Pispala",
     city: "Tampere",
-    imageUrl: "https://images.pexels.com/photos/31630963/pexels-photo-31630963/free-photo-of-wooden-houses-in-pispala.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    imageUrl: "https://d38jyormajor1t.cloudfront.net/1920x470/sisustusprodmedia/sisustus/wp-content/uploads/2018/10/area-tampere-pispala-2.jpg",
     description:
       "Pispala is built on a ridge between two lakes, offering stunning views. It has a bohemian atmosphere with colorful wooden houses and a strong community spirit.",
     factors: {
@@ -247,7 +247,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "palosaari-vaasa",
     name: "Palosaari",
     city: "Vaasa",
-    imageUrl: "https://images.unsplash.com/photo-1595429035839-c99c298ffdde",
+    imageUrl: "https://www.vaasaparks.fi/wp-content/uploads/2019/08/palosaari_72.jpg",
     description:
       "Palosaari is a vibrant university district with a coastal location. It blends historic wooden buildings with modern architecture and has a youthful, international atmosphere due to the nearby university.",
     factors: {
@@ -294,7 +294,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "saaristokaupunki-kuopio",
     name: "Saaristokaupunki",
     city: "Kuopio",
-    imageUrl: "https://images.unsplash.com/photo-1563460716037-460a3ad24ba9",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRWkLJ2-tetuZaQG7_71_69spyk9oycHy6e-vFlIoTBMDKv2RELEepYhQxx_302cauCh-YoQel-ZEIMdsT62AfoKQD6LrBAy5OgZ4JpsQ",
     description:
       "Saaristokaupunki (Archipelago City) is a modern residential area built around natural waterways. It offers lakeside living with contemporary architecture and excellent outdoor recreation opportunities.",
     factors: {
@@ -388,7 +388,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "kampustulli-oulu",
     name: "Tulli & Campus",
     city: "Oulu",
-    imageUrl: "https://images.unsplash.com/photo-1564501049559-0b54b6f0dc1a",
+    imageUrl: "https://oulu2026.eu/wp-content/uploads/2024/12/visitouludji0568-kopio.jpg",
     description:
       "The Tulli and University district blends heritage buildings with modern tech facilities. It's the intellectual and innovation heart of Oulu with a vibrant atmosphere.",
     factors: {
@@ -435,7 +435,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "lutakko-jyvaskyla",
     name: "Lutakko",
     city: "Jyväskylä",
-    imageUrl: "https://images.unsplash.com/photo-1588935365434-e44c34bf7355",
+    imageUrl: "https://visualfinland.com/wp-content/uploads/edd/2021/04/DJI_0968-scaled-1560x861.jpeg",
     description:
       "Lutakko is a transformed industrial waterfront area now featuring modern apartments, cultural venues, and office spaces. It combines urban living with lakeside views and amenities.",
     factors: {
@@ -576,7 +576,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "rovaniemi-center",
     name: "City Center",
     city: "Rovaniemi",
-    imageUrl: "https://images.unsplash.com/photo-1518094279606-7c51244ae4d9",
+    imageUrl: "https://www.lapland.fi/uploads/2021/11/0c5150ea-rovaniemi-arctic-circle-santa-claus-summer-jani-ylinampa-lapland-material-bank.jpg",
     description:
       "Rovaniemi city center is the capital of Finnish Lapland, offering modern Arctic living. It combines northern nature with urban amenities and is known as the official hometown of Santa Claus.",
     factors: {
