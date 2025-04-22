@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   Card,
@@ -28,7 +27,7 @@ const developmentPlans: DevelopmentPlan[] = [
     city: "Helsinki",
     title: "Helsinki Vision 2035",
     description: "Helsinki is implementing a comprehensive urban development strategy focused on sustainability, mobility, and quality of living.",
-    imageUrl: "https://images.unsplash.com/photo-1550093165-0da26b86e980",
+    imageUrl: "https://images.pexels.com/photos/31630959/pexels-photo-31630959/free-photo-of-modern-tram-at-helsinki-station-in-winter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     initiatives: [
       "Carbon-neutral city by 2035",
       "New tram lines connecting suburbs to city center",
@@ -36,7 +35,7 @@ const developmentPlans: DevelopmentPlan[] = [
       "Urban green space expansion",
       "Sustainable housing development in Kruunuvuorenranta"
     ],
-    planUrl: "https://www.hel.fi/en/decision-making/development/helsinki-city-strategy-2021-2025",
+    planUrl: "https://www.hel.fi/en/urban-environment-and-traffic/urban-planning-and-construction/urban-development",
     completionYear: "2035",
     budget: "€520 million",
     location: "City-wide with focus on southern districts"
@@ -45,7 +44,7 @@ const developmentPlans: DevelopmentPlan[] = [
     city: "Espoo",
     title: "Espoo Growth Strategy 2025",
     description: "Espoo is investing in infrastructure and community development to support its growing population.",
-    imageUrl: "https://images.unsplash.com/photo-1577415124269-fc1140a69e91",
+    imageUrl: "https://images.unsplash.com/photo-1663069615732-fdd37e8d6ca1?q=80&w=2748&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     initiatives: [
       "Metro line western extension",
       "New educational campus in Otaniemi",
@@ -53,7 +52,7 @@ const developmentPlans: DevelopmentPlan[] = [
       "Expansion of technology business parks",
       "Leppävaara central area renovation"
     ],
-    planUrl: "https://www.espoo.fi/en/city-espoo/espoo-story",
+    planUrl: "https://www.espoo.fi/en/city-and-decision-making/espoo-story",
     completionYear: "2025",
     budget: "€340 million",
     location: "Focus on western and southern districts"
@@ -62,7 +61,7 @@ const developmentPlans: DevelopmentPlan[] = [
     city: "Tampere",
     title: "Tampere Forward 2030",
     description: "Tampere is focusing on becoming Finland's innovation hub while maintaining its unique cultural heritage and natural surroundings.",
-    imageUrl: "https://images.unsplash.com/photo-1561542320-9a18cd340469",
+    imageUrl: "https://images.unsplash.com/photo-1590518713765-5d333a408c71?q=80&w=2850&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     initiatives: [
       "Tram network expansion to western districts",
       "Transformation of Hiedanranta into a smart district",
@@ -70,7 +69,7 @@ const developmentPlans: DevelopmentPlan[] = [
       "Smart city technology implementation",
       "Cultural venue revitalization in the city center"
     ],
-    planUrl: "https://www.tampere.fi/en/city-of-tampere/city-strategy",
+    planUrl: "https://www.tampere.fi/en/organisaatio/tampere-welcoming-city-kehitysohjelma",
     completionYear: "2030",
     budget: "€280 million",
     location: "Central and western Tampere"
@@ -79,15 +78,15 @@ const developmentPlans: DevelopmentPlan[] = [
     city: "Turku",
     title: "Turku Urban Blueprint 2029",
     description: "Turku is revitalizing its historic areas while advancing sustainable urban planning principles and riverside development.",
-    imageUrl: "https://images.unsplash.com/photo-1534237710431-e2fc698436d0",
+    imageUrl: "https://images.unsplash.com/photo-1642747041760-96edbc00df69?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     initiatives: [
-      "One Hour Train connection to Helsinki",
+      "One Hour TrHain connection to Helsinki",
       "Riverside cultural zone enhancement",
       "Historic quarter preservation",
       "Port area modernization",
       "Science Park expansion for biotechnology"
     ],
-    planUrl: "https://www.turku.fi/en/decision-making/vision-and-strategy",
+    planUrl: "https://www.turku.fi/en/projects/developing-city-centre",
     completionYear: "2029",
     budget: "€230 million",
     location: "City center and riverside areas"
