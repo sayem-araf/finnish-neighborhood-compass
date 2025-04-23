@@ -1,779 +1,520 @@
-import { Neighborhood } from "@/types/neighborhood";
+import { Neighborhood } from "../types/neighborhood";
 
 export const mockNeighborhoods: Neighborhood[] = [
   {
-    id: "kallio-helsinki",
+    id: "1",
     name: "Kallio",
     city: "Helsinki",
-
-    imageUrl: "https://images.pexels.com/photos/31630959/pexels-photo-31630959/free-photo-of-modern-tram-at-helsinki-station-in-winter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description:
-      "Kallio is a densely populated, traditionally working-class district with a vibrant nightlife, trendy cafés and restaurants. It's known for its urban atmosphere and cultural diversity.",
+    imageUrl: "https://images.pexels.com/photos/1234567/pexels-photo-1234567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    description: "A vibrant, diverse neighborhood known for its nightlife, cultural events, and artistic community.",
+    employmentStats: {
+      employmentRate: 85,
+      averageSalary: 45000,
+      majorIndustries: [
+        { name: "Technology", percentage: 30 },
+        { name: "Creative Arts", percentage: 25 },
+        { name: "Hospitality", percentage: 20 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 10 }
+      ]
+    },
     factors: {
       airQuality: {
-        name: "Air Quality (PM2.5)",
-        score: 12,
+        name: "Air Quality",
+        score: 85,
         unit: "µg/m³",
-        description: "Moderate air quality at 12 µg/m³ due to urban location and traffic",
+        description: "Good air quality with low pollution levels"
       },
       noiseLevel: {
         name: "Noise Level",
-        score: 40,
-        description: "Higher noise levels due to busy streets and nightlife",
+        score: 65,
+        description: "Moderate noise levels, especially during weekends"
       },
       transportation: {
         name: "Transportation",
-        score: 95,
-        description: "Excellent public transport with trams, buses, and metro",
+        score: 90,
+        description: "Excellent public transport connections"
       },
       diversity: {
         name: "Diversity",
-        score: 85,
-        description: "High cultural diversity with many international residents",
+        score: 95,
+        description: "Very diverse population with many international residents"
       },
       wildlife: {
         name: "Wildlife",
-        score: 20,
-        description: "Limited wildlife due to urban density",
+        score: 40,
+        description: "Limited wildlife due to urban setting"
       },
       incomeLevel: {
         name: "Income Level",
+        score: 70,
+        description: "Mixed income levels with some affordable housing"
+      },
+      languages: {
+        finnish: 60,
+        swedish: 5,
+        english: 25,
+        other: 10
+      },
+      recreationOptions: [
+        "Nightlife",
+        "Cultural Events",
+        "Art Galleries",
+        "Parks",
+        "Restaurants",
+        "Cafes",
+        "Live Music Venues"
+      ],
+      trafficCongestion: {
+        level: "moderate",
+        peakHours: [
+          {
+            day: "monday",
+            timeRange: "7:00-9:00",
+            congestionLevel: "high"
+          },
+          {
+            day: "friday",
+            timeRange: "16:00-18:00",
+            congestionLevel: "high"
+          }
+        ],
+        description: "Moderate traffic congestion during rush hours, especially on main streets"
+      }
+    },
+    developmentPlans: [
+      {
+        title: "Kallio Cultural Center",
+        description: "New cultural center with performance spaces and art galleries",
+        timeline: "2024-2026",
+        status: "planned",
+        impact: [
+          "Enhanced cultural offerings",
+          "New employment opportunities",
+          "Increased property values"
+        ]
+      },
+      {
+        title: "Kallio Park Renovation",
+        description: "Major renovation of Kallio Park including new playground and sports facilities",
+        timeline: "2023-2024",
+        status: "in-progress",
+        impact: [
+          "Improved recreational facilities",
+          "Better green spaces",
+          "Enhanced community gathering spaces"
+        ]
+      }
+    ]
+  },
+  {
+    id: "2",
+    name: "Töölö",
+    city: "Helsinki",
+    imageUrl: "https://images.pexels.com/photos/2345678/pexels-photo-2345678.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    description: "An upscale residential area near the city center, known for its beautiful architecture and proximity to cultural institutions.",
+    employmentStats: {
+      employmentRate: 90,
+      averageSalary: 65000,
+      majorIndustries: [
+        { name: "Finance", percentage: 35 },
+        { name: "Technology", percentage: 25 },
+        { name: "Healthcare", percentage: 20 },
+        { name: "Education", percentage: 15 },
+        { name: "Government", percentage: 5 }
+      ]
+    },
+    factors: {
+      airQuality: {
+        name: "Air Quality",
+        score: 90,
+        unit: "µg/m³",
+        description: "Excellent air quality with very low pollution levels"
+      },
+      noiseLevel: {
+        name: "Noise Level",
+        score: 75,
+        description: "Generally quiet residential area"
+      },
+      transportation: {
+        name: "Transportation",
+        score: 85,
+        description: "Good public transport connections"
+      },
+      diversity: {
+        name: "Diversity",
+        score: 70,
+        description: "Moderately diverse population"
+      },
+      wildlife: {
+        name: "Wildlife",
         score: 60,
-        description: "Mixed income levels with gentrification ongoing",
+        description: "Some urban wildlife in parks"
+      },
+      incomeLevel: {
+        name: "Income Level",
+        score: 85,
+        description: "High income levels with premium housing"
+      },
+      languages: {
+        finnish: 70,
+        swedish: 10,
+        english: 15,
+        other: 5
+      },
+      recreationOptions: [
+        "Parks",
+        "Museums",
+        "Theaters",
+        "Restaurants",
+        "Cafes",
+        "Sports Facilities",
+        "Cultural Events"
+      ],
+      trafficCongestion: {
+        level: "low",
+        peakHours: [
+          {
+            day: "monday",
+            timeRange: "8:00-9:00",
+            congestionLevel: "moderate"
+          }
+        ],
+        description: "Low traffic congestion with occasional moderate levels during morning rush hour"
+      }
+    },
+    developmentPlans: [
+      {
+        title: "Töölö Bay Waterfront Development",
+        description: "Development of new residential and commercial spaces along Töölö Bay",
+        timeline: "2024-2027",
+        status: "planned",
+        impact: [
+          "New housing options",
+          "Enhanced waterfront access",
+          "New commercial spaces"
+        ]
+      },
+      {
+        title: "Töölö Sports Center Expansion",
+        description: "Expansion of existing sports facilities with new indoor and outdoor spaces",
+        timeline: "2023-2025",
+        status: "in-progress",
+        impact: [
+          "More sports facilities",
+          "Better training conditions",
+          "Increased capacity for events"
+        ]
+      }
+    ]
+  },
+  {
+    id: "3",
+    name: "Nuuksio",
+    city: "Espoo",
+    imageUrl: "https://images.pexels.com/photos/3456789/pexels-photo-3456789.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    description: "A nature-rich area with forests and lakes, perfect for outdoor activities and peaceful living.",
+    employmentStats: {
+      employmentRate: 80,
+      averageSalary: 55000,
+      majorIndustries: [
+        { name: "Technology", percentage: 40 },
+        { name: "Education", percentage: 20 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Tourism", percentage: 15 },
+        { name: "Retail", percentage: 10 }
+      ]
+    },
+    factors: {
+      airQuality: {
+        name: "Air Quality",
+        score: 95,
+        unit: "µg/m³",
+        description: "Excellent air quality with very low pollution levels"
+      },
+      noiseLevel: {
+        name: "Noise Level",
+        score: 90,
+        description: "Very quiet area with minimal noise pollution"
+      },
+      transportation: {
+        name: "Transportation",
+        score: 70,
+        description: "Limited public transport, car-dependent"
+      },
+      diversity: {
+        name: "Diversity",
+        score: 60,
+        description: "Moderately diverse population"
+      },
+      wildlife: {
+        name: "Wildlife",
+        score: 95,
+        description: "Rich wildlife with many species"
+      },
+      incomeLevel: {
+        name: "Income Level",
+        score: 75,
+        description: "Above average income levels"
       },
       languages: {
         finnish: 75,
         swedish: 5,
         english: 15,
-        other: 5,
-      },
-      recreationOptions: ["Cafés", "Bars", "Theaters", "Gyms", "Small parks"],
-    },
-    employmentStats: {
-      employmentRate: 75,
-      averageSalary: 4500,
-      majorIndustries: [
-        { name: "Technology", percentage: 35 },
-        { name: "Services", percentage: 25 },
-        { name: "Education", percentage: 15 },
-        { name: "Healthcare", percentage: 15 },
-        { name: "Other", percentage: 10 }
-      ]
-    }
-  },
-  {
-    id: "toolo-helsinki",
-    name: "Töölö",
-    city: "Helsinki",
-    imageUrl: "https://images.pexels.com/photos/31630960/pexels-photo-31630960/free-photo-of-helsinki-cathedral-in-winter.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description:
-      "Töölö is an upscale residential district with beautiful architecture, adjacent to parks and the sea. It's known for its cultural institutions and peaceful atmosphere.",
-    factors: {
-      airQuality: {
-        name: "Air Quality (PM2.5)",
-        score: 8,
-        unit: "µg/m³",
-        description: "Good air quality with proximity to parks",
-      },
-      noiseLevel: {
-        name: "Noise Level",
-        score: 70,
-        description: "Relatively quiet residential streets with some traffic",
-      },
-      transportation: {
-        name: "Transportation",
-        score: 85,
-        description: "Good public transport with trams and buses",
-      },
-      diversity: {
-        name: "Diversity",
-        score: 60,
-        description: "Moderate diversity with mainly Finnish residents",
-      },
-      wildlife: {
-        name: "Wildlife",
-        score: 45,
-        description: "Some wildlife in nearby parks and shores",
-      },
-      incomeLevel: {
-        name: "Income Level",
-        score: 85,
-        description: "Higher income area with upscale apartments",
-      },
-      languages: {
-        finnish: 85,
-        swedish: 8,
-        english: 5,
-        other: 2,
-      },
-      recreationOptions: ["Parks", "Museums", "Opera", "Sporting facilities", "Beaches"],
-    },
-    employmentStats: {
-      employmentRate: 75,
-      averageSalary: 4500,
-      majorIndustries: [
-        { name: "Technology", percentage: 35 },
-        { name: "Services", percentage: 25 },
-        { name: "Education", percentage: 15 },
-        { name: "Healthcare", percentage: 15 },
-        { name: "Other", percentage: 10 }
-      ]
-    }
-  },
-  {
-    id: "nuuksio-espoo",
-    name: "Nuuksio",
-    city: "Espoo",
-    imageUrl: "https://images.pexels.com/photos/31630961/pexels-photo-31630961/free-photo-of-forest-lake-in-nuuksio-national-park.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description:
-      "Nuuksio is a natural paradise with a national park, lakes and forests. The area offers peaceful living surrounded by Finland's beautiful nature.",
-    factors: {
-      airQuality: {
-        name: "Air Quality (PM2.5)",
-        score: 3,
-        unit: "µg/m³",
-        description: "Excellent air quality due to forests and distance from pollution sources",
-      },
-      noiseLevel: {
-        name: "Noise Level",
-        score: 95,
-        description: "Very quiet environment with only natural sounds",
-      },
-      transportation: {
-        name: "Transportation",
-        score: 30,
-        description: "Limited public transport options, car recommended",
-      },
-      diversity: {
-        name: "Diversity",
-        score: 25,
-        description: "Predominantly Finnish population",
-      },
-      wildlife: {
-        name: "Wildlife",
-        score: 95,
-        description: "Rich wildlife with birds, deer, foxes, and more",
-      },
-      incomeLevel: {
-        name: "Income Level",
-        score: 75,
-        description: "Above average income levels with spacious properties",
-      },
-      languages: {
-        finnish: 90,
-        swedish: 5,
-        english: 4,
-        other: 1,
+        other: 5
       },
       recreationOptions: [
         "Hiking",
+        "Camping",
         "Fishing",
-        "Foraging",
-        "Swimming",
-        "Winter sports",
+        "Bird Watching",
+        "Nature Trails",
+        "Lakes",
+        "Forests"
       ],
+      trafficCongestion: {
+        level: "low",
+        peakHours: [
+          {
+            day: "monday",
+            timeRange: "7:30-8:30",
+            congestionLevel: "moderate"
+          }
+        ],
+        description: "Low traffic congestion with occasional moderate levels during morning rush hour"
+      }
     },
-    employmentStats: {
-      employmentRate: 75,
-      averageSalary: 4500,
-      majorIndustries: [
-        { name: "Technology", percentage: 35 },
-        { name: "Services", percentage: 25 },
-        { name: "Education", percentage: 15 },
-        { name: "Healthcare", percentage: 15 },
-        { name: "Other", percentage: 10 }
-      ]
-    }
+    developmentPlans: [
+      {
+        title: "Nuuksio National Park Visitor Center",
+        description: "New visitor center with educational facilities and nature trails",
+        timeline: "2024-2025",
+        status: "planned",
+        impact: [
+          "Better visitor experience",
+          "Enhanced educational opportunities",
+          "Improved nature conservation"
+        ]
+      },
+      {
+        title: "Nuuksio Lakefront Development",
+        description: "Development of new residential areas with lake access",
+        timeline: "2023-2026",
+        status: "in-progress",
+        impact: [
+          "New housing options",
+          "Enhanced lake access",
+          "Improved recreational facilities"
+        ]
+      }
+    ]
   },
   {
-    id: "tapiola-espoo",
+    id: "4",
     name: "Tapiola",
     city: "Espoo",
-    imageUrl: "https://images.pexels.com/photos/31630962/pexels-photo-31630962/free-photo-of-modern-architecture-in-tapiola.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description:
-      "Tapiola is a garden city with modernist architecture, green spaces, and good services. It offers a balance of urban amenities and natural surroundings.",
+    imageUrl: "https://images.pexels.com/photos/4567890/pexels-photo-4567890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    description: "A planned garden city with modernist architecture, known for its excellent urban planning and quality of life.",
+    employmentStats: {
+      employmentRate: 88,
+      averageSalary: 60000,
+      majorIndustries: [
+        { name: "Technology", percentage: 45 },
+        { name: "Finance", percentage: 20 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 10 },
+        { name: "Retail", percentage: 10 }
+      ]
+    },
     factors: {
       airQuality: {
-        name: "Air Quality (PM2.5)",
-        score: 6,
+        name: "Air Quality",
+        score: 88,
         unit: "µg/m³",
-        description: "Good air quality with many green spaces",
+        description: "Very good air quality with low pollution levels"
       },
       noiseLevel: {
         name: "Noise Level",
-        score: 75,
-        description: "Relatively quiet with some traffic around main roads",
-      },
-      transportation: {
-        name: "Transportation",
         score: 80,
-        description: "Good public transport with metro and bus connections",
-      },
-      diversity: {
-        name: "Diversity",
-        score: 70,
-        description: "Growing international community with tech companies nearby",
-      },
-      wildlife: {
-        name: "Wildlife",
-        score: 50,
-        description: "Some wildlife in parks and green corridors",
-      },
-      incomeLevel: {
-        name: "Income Level",
-        score: 80,
-        description: "Higher income area with diverse housing options",
-      },
-      languages: {
-        finnish: 80,
-        swedish: 5,
-        english: 10,
-        other: 5,
-      },
-      recreationOptions: ["Shopping", "Cultural center", "Sports facilities", "Parks", "Cycling"],
-    },
-    employmentStats: {
-      employmentRate: 75,
-      averageSalary: 4500,
-      majorIndustries: [
-        { name: "Technology", percentage: 35 },
-        { name: "Services", percentage: 25 },
-        { name: "Education", percentage: 15 },
-        { name: "Healthcare", percentage: 15 },
-        { name: "Other", percentage: 10 }
-      ]
-    }
-  },
-  {
-    id: "pispala-tampere",
-    name: "Pispala",
-    city: "Tampere",
-    imageUrl: "https://d38jyormajor1t.cloudfront.net/1920x470/sisustusprodmedia/sisustus/wp-content/uploads/2018/10/area-tampere-pispala-2.jpg",
-    description:
-      "Pispala is built on a ridge between two lakes, offering stunning views. It has a bohemian atmosphere with colorful wooden houses and a strong community spirit.",
-    factors: {
-      airQuality: {
-        name: "Air Quality (PM2.5)",
-        score: 5,
-        unit: "µg/m³",
-        description: "Good air quality with lake breezes",
-      },
-      noiseLevel: {
-        name: "Noise Level",
-        score: 75,
-        description: "Quiet residential area away from major traffic",
-      },
-      transportation: {
-        name: "Transportation",
-        score: 65,
-        description: "Bus connections to city center, hilly terrain can be challenging",
-      },
-      diversity: {
-        name: "Diversity",
-        score: 55,
-        description: "Mix of traditional residents and newcomers",
-      },
-      wildlife: {
-        name: "Wildlife",
-        score: 65,
-        description: "Birds and small mammals in green spaces and lakeshores",
-      },
-      incomeLevel: {
-        name: "Income Level",
-        score: 60,
-        description: "Mixed income levels with increasing property values",
-      },
-      languages: {
-        finnish: 90,
-        swedish: 1,
-        english: 7,
-        other: 2,
-      },
-      recreationOptions: ["Swimming", "Sauna", "Community gardens", "Art events", "Walking trails"],
-    },
-    employmentStats: {
-      employmentRate: 75,
-      averageSalary: 4500,
-      majorIndustries: [
-        { name: "Technology", percentage: 35 },
-        { name: "Services", percentage: 25 },
-        { name: "Education", percentage: 15 },
-        { name: "Healthcare", percentage: 15 },
-        { name: "Other", percentage: 10 }
-      ]
-    }
-  },
-  {
-    id: "palosaari-vaasa",
-    name: "Palosaari",
-    city: "Vaasa",
-    imageUrl: "https://www.vaasaparks.fi/wp-content/uploads/2019/08/palosaari_72.jpg",
-    description:
-      "Palosaari is a vibrant university district with a coastal location. It blends historic wooden buildings with modern architecture and has a youthful, international atmosphere due to the nearby university.",
-    factors: {
-      airQuality: {
-        name: "Air Quality (PM2.5)",
-        score: 4,
-        unit: "µg/m³",
-        description: "Excellent air quality due to coastal winds and low industrial activity",
-      },
-      noiseLevel: {
-        name: "Noise Level",
-        score: 65,
-        description: "Moderate noise levels with student activity and some traffic",
-      },
-      transportation: {
-        name: "Transportation",
-        score: 75,
-        description: "Good bus connections and cycling infrastructure",
-      },
-      diversity: {
-        name: "Diversity",
-        score: 80,
-        description: "High international diversity due to university students and staff",
-      },
-      wildlife: {
-        name: "Wildlife",
-        score: 55,
-        description: "Coastal birds and modest urban wildlife in green areas",
-      },
-      incomeLevel: {
-        name: "Income Level",
-        score: 65,
-        description: "Mixed income levels with student housing and family apartments",
-      },
-      languages: {
-        finnish: 60,
-        swedish: 25,
-        english: 12,
-        other: 3,
-      },
-      recreationOptions: ["Beach activities", "University events", "Cafés", "Coastal trails", "Student organizations"],
-    },
-    employmentStats: {
-      employmentRate: 75,
-      averageSalary: 4500,
-      majorIndustries: [
-        { name: "Technology", percentage: 35 },
-        { name: "Services", percentage: 25 },
-        { name: "Education", percentage: 15 },
-        { name: "Healthcare", percentage: 15 },
-        { name: "Other", percentage: 10 }
-      ]
-    }
-  },
-  {
-    id: "saaristokaupunki-kuopio",
-    name: "Saaristokaupunki",
-    city: "Kuopio",
-    imageUrl: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRWkLJ2-tetuZaQG7_71_69spyk9oycHy6e-vFlIoTBMDKv2RELEepYhQxx_302cauCh-YoQel-ZEIMdsT62AfoKQD6LrBAy5OgZ4JpsQ",
-    description:
-      "Saaristokaupunki (Archipelago City) is a modern residential area built around natural waterways. It offers lakeside living with contemporary architecture and excellent outdoor recreation opportunities.",
-    factors: {
-      airQuality: {
-        name: "Air Quality (PM2.5)",
-        score: 3,
-        unit: "µg/m³",
-        description: "Very clean air with minimal pollution sources and lake breezes",
-      },
-      noiseLevel: {
-        name: "Noise Level",
-        score: 85,
-        description: "Quiet residential area with water buffers reducing sound",
-      },
-      transportation: {
-        name: "Transportation",
-        score: 60,
-        description: "Regular bus connections to city center, car beneficial",
-      },
-      diversity: {
-        name: "Diversity",
-        score: 45,
-        description: "Predominantly Finnish residents with some international families",
-      },
-      wildlife: {
-        name: "Wildlife",
-        score: 80,
-        description: "Rich aquatic and forest wildlife with birds, fish, and small mammals",
-      },
-      incomeLevel: {
-        name: "Income Level",
-        score: 75,
-        description: "Above average income with newer family homes",
-      },
-      languages: {
-        finnish: 93,
-        swedish: 1,
-        english: 5,
-        other: 1,
-      },
-      recreationOptions: ["Boating", "Fishing", "Nature trails", "Winter ice activities", "Family parks"],
-    },
-    employmentStats: {
-      employmentRate: 75,
-      averageSalary: 4500,
-      majorIndustries: [
-        { name: "Technology", percentage: 35 },
-        { name: "Services", percentage: 25 },
-        { name: "Education", percentage: 15 },
-        { name: "Healthcare", percentage: 15 },
-        { name: "Other", percentage: 10 }
-      ]
-    }
-  },
-  {
-    id: "runosmaki-turku",
-    name: "Runosmäki",
-    city: "Turku",
-    imageUrl: "https://images.unsplash.com/photo-1547565377-73f3438a81f5",
-    description:
-      "Runosmäki is one of Turku's largest suburbs with diverse housing options. It offers affordable living with good services and green spaces within reach of the city center.",
-    factors: {
-      airQuality: {
-        name: "Air Quality (PM2.5)",
-        score: 15,
-        unit: "µg/m³",
-        description: "Decent air quality with some impact from nearby highways",
-      },
-      noiseLevel: {
-        name: "Noise Level",
-        score: 60,
-        description: "Moderate noise levels with residential calm in interior streets",
-      },
-      transportation: {
-        name: "Transportation",
-        score: 80,
-        description: "Well-connected with frequent bus service to city center",
-      },
-      diversity: {
-        name: "Diversity",
-        score: 65,
-        description: "Growing multicultural community with various income levels",
-      },
-      wildlife: {
-        name: "Wildlife",
-        score: 45,
-        description: "Some urban wildlife in parks and surrounding forests",
-      },
-      incomeLevel: {
-        name: "Income Level",
-        score: 55,
-        description: "Mixed income levels with affordable housing options",
-      },
-      languages: {
-        finnish: 80,
-        swedish: 5,
-        english: 5,
-        other: 10,
-      },
-      recreationOptions: ["Sports fields", "Community center", "Forest paths", "Playgrounds", "Indoor activities"],
-    },
-    employmentStats: {
-      employmentRate: 75,
-      averageSalary: 4500,
-      majorIndustries: [
-        { name: "Technology", percentage: 35 },
-        { name: "Services", percentage: 25 },
-        { name: "Education", percentage: 15 },
-        { name: "Healthcare", percentage: 15 },
-        { name: "Other", percentage: 10 }
-      ]
-    }
-  },
-  {
-    id: "kampustulli-oulu",
-    name: "Tulli & Campus",
-    city: "Oulu",
-    imageUrl: "https://oulu2026.eu/wp-content/uploads/2024/12/visitouludji0568-kopio.jpg",
-    description:
-      "The Tulli and University district blends heritage buildings with modern tech facilities. It's the intellectual and innovation heart of Oulu with a vibrant atmosphere.",
-    factors: {
-      airQuality: {
-        name: "Air Quality (PM2.5)",
-        score: 7,
-        unit: "µg/m³",
-        description: "Good air quality with efficient city planning and green initiatives",
-      },
-      noiseLevel: {
-        name: "Noise Level",
-        score: 55,
-        description: "Moderately active area with student life and research activities",
-      },
-      transportation: {
-        name: "Transportation",
-        score: 90,
-        description: "Excellent cycling network and public transport connections",
-      },
-      diversity: {
-        name: "Diversity",
-        score: 75,
-        description: "International academic and tech community with various backgrounds",
-      },
-      wildlife: {
-        name: "Wildlife",
-        score: 30,
-        description: "Limited wildlife due to central location, some birds and small animals",
-      },
-      incomeLevel: {
-        name: "Income Level",
-        score: 70,
-        description: "Mix of student accommodation and professional housing",
-      },
-      languages: {
-        finnish: 75,
-        swedish: 2,
-        english: 18,
-        other: 5,
-      },
-      recreationOptions: ["Tech events", "University facilities", "Creative spaces", "Cafés", "Winter activities"],
-    },
-    employmentStats: {
-      employmentRate: 75,
-      averageSalary: 4500,
-      majorIndustries: [
-        { name: "Technology", percentage: 35 },
-        { name: "Services", percentage: 25 },
-        { name: "Education", percentage: 15 },
-        { name: "Healthcare", percentage: 15 },
-        { name: "Other", percentage: 10 }
-      ]
-    }
-  },
-  {
-    id: "lutakko-jyvaskyla",
-    name: "Lutakko",
-    city: "Jyväskylä",
-    imageUrl: "https://visualfinland.com/wp-content/uploads/edd/2021/04/DJI_0968-scaled-1560x861.jpeg",
-    description:
-      "Lutakko is a transformed industrial waterfront area now featuring modern apartments, cultural venues, and office spaces. It combines urban living with lakeside views and amenities.",
-    factors: {
-      airQuality: {
-        name: "Air Quality (PM2.5)",
-        score: 10,
-        unit: "µg/m³",
-        description: "Good air quality with occasional impact from nearby traffic",
-      },
-      noiseLevel: {
-        name: "Noise Level",
-        score: 50,
-        description: "Active area with events, concerts and railway proximity",
+        description: "Generally quiet area with good noise insulation"
       },
       transportation: {
         name: "Transportation",
         score: 85,
-        description: "Central location with excellent connections and walking distance to center",
+        description: "Excellent public transport connections"
       },
       diversity: {
         name: "Diversity",
-        score: 70,
-        description: "Modern and diverse population with students and professionals",
-      },
-      wildlife: {
-        name: "Wildlife",
-        score: 35,
-        description: "Urban wildlife adapted to lakeside environment",
-      },
-      incomeLevel: {
-        name: "Income Level",
         score: 75,
-        description: "Higher than average with modern apartments and facilities",
-      },
-      languages: {
-        finnish: 83,
-        swedish: 2,
-        english: 12,
-        other: 3,
-      },
-      recreationOptions: ["Concert venues", "Lakeside promenade", "Urban culture", "Restaurants", "Water sports"],
-    },
-    employmentStats: {
-      employmentRate: 75,
-      averageSalary: 4500,
-      majorIndustries: [
-        { name: "Technology", percentage: 35 },
-        { name: "Services", percentage: 25 },
-        { name: "Education", percentage: 15 },
-        { name: "Healthcare", percentage: 15 },
-        { name: "Other", percentage: 10 }
-      ]
-    }
-  },
-  {
-    id: "porvoo-old-town",
-    name: "Old Town",
-    city: "Porvoo",
-    imageUrl: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44",
-    description:
-      "Porvoo's Old Town is a historic district with colorful wooden houses and cobblestone streets. It offers charming living with strong cultural heritage and tourism influence.",
-    factors: {
-      airQuality: {
-        name: "Air Quality (PM2.5)",
-        score: 9,
-        unit: "µg/m³",
-        description: "Good air quality with some impact from tourism traffic",
-      },
-      noiseLevel: {
-        name: "Noise Level",
-        score: 60,
-        description: "Quiet during off-season, busier with tourists in summer",
-      },
-      transportation: {
-        name: "Transportation",
-        score: 70,
-        description: "Good bus connections to Helsinki, walkable local area",
-      },
-      diversity: {
-        name: "Diversity",
-        score: 50,
-        description: "Traditional Finnish and Swedish-speaking community with tourism influence",
+        description: "Diverse population with many international residents"
       },
       wildlife: {
         name: "Wildlife",
-        score: 45,
-        description: "Urban birds and riverside wildlife",
+        score: 70,
+        description: "Good amount of urban wildlife in parks"
       },
       incomeLevel: {
         name: "Income Level",
-        score: 70,
-        description: "Mixed with historic homes and tourism-related businesses",
+        score: 80,
+        description: "High income levels with premium housing"
       },
       languages: {
         finnish: 65,
-        swedish: 30,
-        english: 4,
-        other: 1,
+        swedish: 5,
+        english: 25,
+        other: 5
       },
-      recreationOptions: ["Historical sites", "Riverside walks", "Artisan shops", "Cafés", "Cultural events"],
+      recreationOptions: [
+        "Shopping Centers",
+        "Parks",
+        "Cultural Events",
+        "Restaurants",
+        "Cafes",
+        "Sports Facilities",
+        "Art Galleries"
+      ],
+      trafficCongestion: {
+        level: "moderate",
+        peakHours: [
+          {
+            day: "monday",
+            timeRange: "7:30-9:00",
+            congestionLevel: "high"
+          },
+          {
+            day: "friday",
+            timeRange: "16:00-18:00",
+            congestionLevel: "high"
+          }
+        ],
+        description: "Moderate traffic congestion during rush hours, especially around shopping centers"
+      }
     },
-    employmentStats: {
-      employmentRate: 75,
-      averageSalary: 4500,
-      majorIndustries: [
-        { name: "Technology", percentage: 35 },
-        { name: "Services", percentage: 25 },
-        { name: "Education", percentage: 15 },
-        { name: "Healthcare", percentage: 15 },
-        { name: "Other", percentage: 10 }
-      ]
-    }
+    developmentPlans: [
+      {
+        title: "Tapiola Center Renovation",
+        description: "Major renovation of Tapiola Center shopping mall and surrounding areas",
+        timeline: "2024-2026",
+        status: "planned",
+        impact: [
+          "Modernized shopping experience",
+          "New commercial spaces",
+          "Improved pedestrian areas"
+        ]
+      },
+      {
+        title: "Tapiola Park Enhancement",
+        description: "Enhancement of Tapiola Park with new recreational facilities",
+        timeline: "2023-2024",
+        status: "in-progress",
+        impact: [
+          "New recreational facilities",
+          "Improved green spaces",
+          "Better community gathering spaces"
+        ]
+      }
+    ]
   },
   {
-    id: "rauma-old-town",
-    name: "Vanha Rauma",
-    city: "Rauma",
-    imageUrl: "https://images.unsplash.com/photo-1561542320-9a18cd340469",
-    description:
-      "Vanha Rauma (Old Rauma) is a UNESCO World Heritage site with well-preserved wooden buildings. It offers unique historical living with a strong sense of community and craft tradition.",
+    id: "5",
+    name: "Pispala",
+    city: "Tampere",
+    imageUrl: "https://images.pexels.com/photos/5678901/pexels-photo-5678901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    description: "A historic neighborhood with wooden houses and a strong sense of community, known for its artistic atmosphere.",
+    employmentStats: {
+      employmentRate: 82,
+      averageSalary: 48000,
+      majorIndustries: [
+        { name: "Creative Arts", percentage: 30 },
+        { name: "Technology", percentage: 25 },
+        { name: "Education", percentage: 20 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Retail", percentage: 10 }
+      ]
+    },
     factors: {
       airQuality: {
-        name: "Air Quality (PM2.5)",
-        score: 5,
+        name: "Air Quality",
+        score: 82,
         unit: "µg/m³",
-        description: "Clean coastal air with minimal industrial impact",
+        description: "Good air quality with moderate pollution levels"
       },
       noiseLevel: {
         name: "Noise Level",
         score: 70,
-        description: "Generally quiet with seasonal tourism activity",
-      },
-      transportation: {
-        name: "Transportation",
-        score: 65,
-        description: "Local bus services and walkable historic center",
-      },
-      diversity: {
-        name: "Diversity",
-        score: 40,
-        description: "Traditional Finnish community with historical roots",
-      },
-      wildlife: {
-        name: "Wildlife",
-        score: 40,
-        description: "Urban wildlife and coastal birds",
-      },
-      incomeLevel: {
-        name: "Income Level",
-        score: 65,
-        description: "Mixed with heritage properties and tourism businesses",
-      },
-      languages: {
-        finnish: 92,
-        swedish: 3,
-        english: 4,
-        other: 1,
-      },
-      recreationOptions: ["Heritage sites", "Lace making", "Maritime activities", "Cultural events", "Traditional crafts"],
-    },
-    employmentStats: {
-      employmentRate: 75,
-      averageSalary: 4500,
-      majorIndustries: [
-        { name: "Technology", percentage: 35 },
-        { name: "Services", percentage: 25 },
-        { name: "Education", percentage: 15 },
-        { name: "Healthcare", percentage: 15 },
-        { name: "Other", percentage: 10 }
-      ]
-    }
-  },
-  {
-    id: "rovaniemi-center",
-    name: "City Center",
-    city: "Rovaniemi",
-    imageUrl: "https://www.lapland.fi/uploads/2021/11/0c5150ea-rovaniemi-arctic-circle-santa-claus-summer-jani-ylinampa-lapland-material-bank.jpg",
-    description:
-      "Rovaniemi city center is the capital of Finnish Lapland, offering modern Arctic living. It combines northern nature with urban amenities and is known as the official hometown of Santa Claus.",
-    factors: {
-      airQuality: {
-        name: "Air Quality (PM2.5)",
-        score: 2,
-        unit: "µg/m³",
-        description: "Clean Arctic air with excellent quality throughout the year",
-      },
-      noiseLevel: {
-        name: "Noise Level",
-        score: 65,
-        description: "Generally quiet with seasonal tourism peaks",
+        description: "Moderate noise levels, especially during cultural events"
       },
       transportation: {
         name: "Transportation",
         score: 75,
-        description: "Good local bus network and international connections",
+        description: "Good public transport connections"
       },
       diversity: {
         name: "Diversity",
-        score: 60,
-        description: "Growing international community with tourism influence",
+        score: 85,
+        description: "Very diverse population with strong artistic community"
       },
       wildlife: {
         name: "Wildlife",
-        score: 70,
-        description: "Urban wildlife with proximity to northern nature",
+        score: 65,
+        description: "Moderate wildlife presence in parks"
       },
       incomeLevel: {
         name: "Income Level",
         score: 65,
-        description: "Tourism economy with seasonal variations",
+        description: "Mixed income levels with some affordable housing"
       },
       languages: {
-        finnish: 85,
-        swedish: 1,
-        english: 10,
-        other: 4,
+        finnish: 70,
+        swedish: 5,
+        english: 20,
+        other: 5
       },
-      recreationOptions: ["Northern lights viewing", "Winter sports", "Arctic tourism", "Nature activities", "Cultural experiences"],
+      recreationOptions: [
+        "Cultural Events",
+        "Art Galleries",
+        "Parks",
+        "Restaurants",
+        "Cafes",
+        "Live Music Venues",
+        "Community Events"
+      ],
+      trafficCongestion: {
+        level: "low",
+        peakHours: [
+          {
+            day: "monday",
+            timeRange: "8:00-9:00",
+            congestionLevel: "moderate"
+          }
+        ],
+        description: "Low traffic congestion with occasional moderate levels during morning rush hour"
+      }
     },
-    employmentStats: {
-      employmentRate: 75,
-      averageSalary: 4500,
-      majorIndustries: [
-        { name: "Technology", percentage: 35 },
-        { name: "Services", percentage: 25 },
-        { name: "Education", percentage: 15 },
-        { name: "Healthcare", percentage: 15 },
-        { name: "Other", percentage: 10 }
-      ]
-    }
+    developmentPlans: [
+      {
+        title: "Pispala Cultural Center",
+        description: "New cultural center focusing on local arts and community events",
+        timeline: "2024-2026",
+        status: "planned",
+        impact: [
+          "Enhanced cultural offerings",
+          "New community spaces",
+          "Support for local artists"
+        ]
+      },
+      {
+        title: "Pispala Historic District Preservation",
+        description: "Preservation and restoration of historic wooden houses",
+        timeline: "2023-2025",
+        status: "in-progress",
+        impact: [
+          "Preserved cultural heritage",
+          "Improved housing conditions",
+          "Enhanced neighborhood character"
+        ]
+      }
+    ]
   }
 ];
 

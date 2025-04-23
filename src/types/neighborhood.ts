@@ -1,6 +1,7 @@
 export type NeighborhoodFactor = {
   name: string;
   score: number; // 0-100
+  unit?: string; // add unit field for measurements like µg/m³
   description: string;
 };
 
@@ -11,6 +12,24 @@ export type EmploymentStats = {
     name: string;
     percentage: number;
   }[];
+};
+
+export type TrafficCongestion = {
+  level: "low" | "moderate" | "high";
+  peakHours: {
+    day: "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday" | "sunday";
+    timeRange: string;
+    congestionLevel: "low" | "moderate" | "high";
+  }[];
+  description: string;
+};
+
+export type DevelopmentPlan = {
+  title: string;
+  description: string;
+  timeline: string;
+  status: "planned" | "in-progress" | "completed";
+  impact: string[];
 };
 
 export type Neighborhood = {
@@ -34,7 +53,9 @@ export type Neighborhood = {
       other: number;
     };
     recreationOptions: string[];
+    trafficCongestion: TrafficCongestion;
   };
+  developmentPlans: DevelopmentPlan[];
 };
 
 export type UserPreferences = {

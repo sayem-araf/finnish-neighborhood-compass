@@ -26,8 +26,11 @@ import {
   Coffee,
   Briefcase,
   Building2,
-  EuroSign
+  EuroSign,
+  Car
 } from "lucide-react";
+import { TrafficCongestion as TrafficCongestionType } from "@/types/neighborhood";
+import TrafficCongestion from "@/components/neighborhood/TrafficCongestion";
 
 const NeighborhoodDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -322,6 +325,76 @@ const NeighborhoodDetail = () => {
                       );
                     }
                     
+                    if (key === "diversity") {
+                      return (
+                        <div key={key}>
+                          <div className="flex justify-between mb-1 items-center">
+                            <div className="flex items-center gap-2">
+                              {icon}
+                              <span className="font-medium">{factor.name}</span>
+                            </div>
+                            <span className="text-sm">{factor.score}/100</span>
+                          </div>
+                          <div className="h-2 w-full bg-gray-200 rounded-full">
+                            <div
+                              className={`h-2 rounded-full ${getColorClass(factor.score)}`}
+                              style={{ width: `${factor.score}%` }}
+                            ></div>
+                          </div>
+                          <p className="text-sm text-muted-foreground mt-1">
+                            {factor.description}
+                          </p>
+                          
+                          {/* languages spoken section */}
+                          <div className="mt-4">
+                            <h4 className="text-sm font-medium mb-2">Languages Spoken</h4>
+                            <div className="space-y-2">
+                              <div>
+                                <div className="flex justify-between mb-1">
+                                  <span className="text-sm">Finnish</span>
+                                  <span className="text-sm">{neighborhood?.factors.languages.finnish}%</span>
+                                </div>
+                                <Progress
+                                  value={neighborhood?.factors.languages.finnish}
+                                  className="h-1.5"
+                                />
+                              </div>
+                              <div>
+                                <div className="flex justify-between mb-1">
+                                  <span className="text-sm">Swedish</span>
+                                  <span className="text-sm">{neighborhood?.factors.languages.swedish}%</span>
+                                </div>
+                                <Progress
+                                  value={neighborhood?.factors.languages.swedish}
+                                  className="h-1.5"
+                                />
+                              </div>
+                              <div>
+                                <div className="flex justify-between mb-1">
+                                  <span className="text-sm">English</span>
+                                  <span className="text-sm">{neighborhood?.factors.languages.english}%</span>
+                                </div>
+                                <Progress
+                                  value={neighborhood?.factors.languages.english}
+                                  className="h-1.5"
+                                />
+                              </div>
+                              <div>
+                                <div className="flex justify-between mb-1">
+                                  <span className="text-sm">Other</span>
+                                  <span className="text-sm">{neighborhood?.factors.languages.other}%</span>
+                                </div>
+                                <Progress
+                                  value={neighborhood?.factors.languages.other}
+                                  className="h-1.5"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    }
+                    
                     return (
                       <div key={key}>
                         <div className="flex justify-between mb-1 items-center">
@@ -402,55 +475,40 @@ const NeighborhoodDetail = () => {
           </div>
 
           <div className="space-y-6">
-            <Card>
+          <Card>
               <CardHeader>
-                <CardTitle>Languages Spoken</CardTitle>
+                <CardTitle>Market Trends</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div>
                     <div className="flex justify-between mb-1">
-                      <span>Finnish</span>
-                      <span>{neighborhood?.factors.languages.finnish}%</span>
+                      <span className="text-sm">Price change (1 yr)</span>
+                      <span className="text-sm font-medium text-green-600">+2.4%</span>
                     </div>
-                    <Progress
-                      value={neighborhood?.factors.languages.finnish}
-                      className="h-2"
-                    />
+                    <Progress value={60} className="h-2" />
                   </div>
                   <div>
                     <div className="flex justify-between mb-1">
-                      <span>Swedish</span>
-                      <span>{neighborhood?.factors.languages.swedish}%</span>
+                      <span className="text-sm">Avg. time on market</span>
+                      <span className="text-sm font-medium">45 days</span>
                     </div>
-                    <Progress
-                      value={neighborhood?.factors.languages.swedish}
-                      className="h-2"
-                    />
+                    <Progress value={45} className="h-2" />
                   </div>
                   <div>
                     <div className="flex justify-between mb-1">
-                      <span>English</span>
-                      <span>{neighborhood?.factors.languages.english}%</span>
+                      <span className="text-sm">Demand level</span>
+                      <span className="text-sm font-medium text-amber-600">Medium</span>
                     </div>
-                    <Progress
-                      value={neighborhood?.factors.languages.english}
-                      className="h-2"
-                    />
-                  </div>
-                  <div>
-                    <div className="flex justify-between mb-1">
-                      <span>Other</span>
-                      <span>{neighborhood?.factors.languages.other}%</span>
-                    </div>
-                    <Progress
-                      value={neighborhood?.factors.languages.other}
-                      className="h-2"
-                    />
+                    <Progress value={65} className="h-2" />
                   </div>
                 </div>
               </CardContent>
             </Card>
+            
+            {neighborhood?.factors.trafficCongestion && (
+              <TrafficCongestion trafficData={neighborhood.factors.trafficCongestion} />
+            )}
 
             <Card>
               <CardHeader>
@@ -538,37 +596,6 @@ const NeighborhoodDetail = () => {
                       <span className="text-sm font-medium">{amenity.count}</span>
                     </div>
                   ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Market Trends</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-sm">Price change (1 yr)</span>
-                      <span className="text-sm font-medium text-green-600">+2.4%</span>
-                    </div>
-                    <Progress value={60} className="h-2" />
-                  </div>
-                  <div>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-sm">Avg. time on market</span>
-                      <span className="text-sm font-medium">45 days</span>
-                    </div>
-                    <Progress value={45} className="h-2" />
-                  </div>
-                  <div>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-sm">Demand level</span>
-                      <span className="text-sm font-medium text-amber-600">Medium</span>
-                    </div>
-                    <Progress value={65} className="h-2" />
-                  </div>
                 </div>
               </CardContent>
             </Card>
