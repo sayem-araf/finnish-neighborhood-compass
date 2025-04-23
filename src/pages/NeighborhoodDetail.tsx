@@ -28,8 +28,8 @@ import {
   Building2,
   Car
 } from "lucide-react";
-import { TrafficCongestion as TrafficCongestionType } from "@/types/neighborhood";
 import TrafficCongestion from "@/components/neighborhood/TrafficCongestion";
+import Demographics from "@/components/neighborhood/Demographics";
 
 const NeighborhoodDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -312,26 +312,7 @@ const NeighborhoodDetail = () => {
                     const icon = factorIcons[key as keyof typeof factorIcons];
                     
                     if (key === "incomeLevel") {
-                      return (
-                        <div key={key}>
-                          <div className="flex justify-between mb-1 items-center">
-                            <div className="flex items-center gap-2">
-                              {icon}
-                              <span className="font-medium">{factor.name}</span>
-                            </div>
-                            <span className="text-sm font-semibold">{getIncomeRange(factor.score)}</span>
-                          </div>
-                          <div className="h-2 w-full bg-gray-200 rounded-full">
-                            <div
-                              className={`h-2 rounded-full ${getColorClass(factor.score)}`}
-                              style={{ width: `${factor.score}%` }}
-                            ></div>
-                          </div>
-                          <p className="text-sm text-muted-foreground mt-1">
-                            Average annual household income in this neighborhood.
-                          </p>
-                        </div>
-                      );
+                      return null;
                     }
                     
                     if (key === "wildlife" && wildlifeData) {
@@ -472,6 +453,18 @@ const NeighborhoodDetail = () => {
                 </div>
               </CardContent>
             </Card>
+
+            {neighborhood && (
+              <div className="mt-6">
+                <Demographics
+                  data={{
+                    incomeLevel: neighborhood.factors.incomeLevel,
+                    employmentStats: neighborhood.employmentStats,
+                    languages: neighborhood.factors.languages
+                  }}
+                />
+              </div>
+            )}
             
             <Card className="mt-6">
               <CardHeader>
@@ -528,7 +521,7 @@ const NeighborhoodDetail = () => {
           </div>
 
           <div className="space-y-6">
-          <Card>
+            <Card>
               <CardHeader>
                 <CardTitle>Market Trends</CardTitle>
               </CardHeader>
@@ -558,7 +551,7 @@ const NeighborhoodDetail = () => {
                 </div>
               </CardContent>
             </Card>
-            
+
             {neighborhood?.factors.trafficCongestion && (
               <TrafficCongestion trafficData={neighborhood.factors.trafficCongestion} />
             )}
