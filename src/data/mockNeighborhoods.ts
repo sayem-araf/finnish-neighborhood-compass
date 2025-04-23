@@ -621,7 +621,7 @@ export const mockNeighborhoods: Neighborhood[] = [
       "id": "101",
       "name": "Lutakko",
       "city": "Jyväskylä",
-      "imageUrl": "https://images.pexels.com/photos/5722827/pexels-photo-5722827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "imageUrl": "https://vesitaksi.fi/wp-content/uploads/2022/06/jyvaskyla-lutakko.jpg",
       "description": "A revitalized former industrial area transformed into a modern residential neighborhood with lake views and cultural venues.",
       "employmentStats": {
         "employmentRate": 86,
@@ -722,7 +722,7 @@ export const mockNeighborhoods: Neighborhood[] = [
       "id": "102",
       "name": "Puijonlaakso",
       "city": "Kuopio",
-      "imageUrl": "https://images.pexels.com/photos/5345029/pexels-photo-5345029.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "imageUrl": "https://cms.globalconnect.net/app/uploads/sites/2/2024/06/kaupunkikuva_kuopio-1024x683.jpg",
       "description": "A green neighborhood near Puijo hill with excellent sports facilities, hospital complex, and convenient location close to nature.",
       "employmentStats": {
         "employmentRate": 88,
@@ -823,7 +823,7 @@ export const mockNeighborhoods: Neighborhood[] = [
       "id": "103",
       "name": "Korkalovaara",
       "city": "Rovaniemi",
-      "imageUrl": "https://images.pexels.com/photos/6577903/pexels-photo-6577903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "imageUrl": "https://das.fi/loader.aspx?id=b6b9e115-66d8-443f-8a8a-38df9ef710ff",
       "description": "A residential hillside neighborhood with good views, family-friendly atmosphere, and proximity to recreational areas and Arctic Circle attractions.",
       "employmentStats": {
         "employmentRate": 79,
