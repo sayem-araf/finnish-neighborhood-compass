@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { mockNeighborhoods } from "@/data/mockNeighborhoods";
@@ -88,9 +87,9 @@ const NeighborhoodStats = ({ selectedCity }: NeighborhoodStatsProps) => {
           <CloudSun className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{avgAirQuality}/100</div>
+          <div className="text-2xl font-bold">{avgAirQuality} µg/m³</div>
           <p className="text-xs text-muted-foreground">
-            Based on {selectedCity} environmental data
+            PM2.5 concentration in {selectedCity}
           </p>
         </CardContent>
       </Card>

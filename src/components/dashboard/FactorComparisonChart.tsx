@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -101,9 +100,10 @@ const FactorComparisonChart = ({
               tickLine={false}
             />
             <YAxis 
-              domain={[0, 100]} 
+              domain={[0, 30]}
               tick={{ fontSize: 12 }} 
               tickLine={false}
+              label={{ value: 'PM2.5 (µg/m³)', angle: -90, position: 'insideLeft' }}
             />
             <Tooltip content={<ChartTooltipContent />} />
             <Legend wrapperStyle={{ paddingTop: 15 }} />

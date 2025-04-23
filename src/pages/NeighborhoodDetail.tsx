@@ -329,7 +329,9 @@ const NeighborhoodDetail = () => {
                             {icon}
                             <span className="font-medium">{factor.name}</span>
                           </div>
-                          <span className="text-sm">{factor.score}/100</span>
+                          <span className="text-sm">
+                            {key === 'airQuality' ? `${factor.score} µg/m³` : `${factor.score}/100`}
+                          </span>
                         </div>
                         <div className="h-2 w-full bg-gray-200 rounded-full">
                           <div

@@ -11,9 +11,10 @@ export const mockNeighborhoods: Neighborhood[] = [
       "Kallio is a densely populated, traditionally working-class district with a vibrant nightlife, trendy cafés and restaurants. It's known for its urban atmosphere and cultural diversity.",
     factors: {
       airQuality: {
-        name: "Air Quality",
-        score: 65,
-        description: "Moderate air quality due to urban location and traffic",
+        name: "Air Quality (PM2.5)",
+        score: 12,
+        unit: "µg/m³",
+        description: "Moderate air quality at 12 µg/m³ due to urban location and traffic",
       },
       noiseLevel: {
         name: "Noise Level",
@@ -58,8 +59,9 @@ export const mockNeighborhoods: Neighborhood[] = [
       "Töölö is an upscale residential district with beautiful architecture, adjacent to parks and the sea. It's known for its cultural institutions and peaceful atmosphere.",
     factors: {
       airQuality: {
-        name: "Air Quality",
-        score: 75,
+        name: "Air Quality (PM2.5)",
+        score: 8,
+        unit: "µg/m³",
         description: "Good air quality with proximity to parks",
       },
       noiseLevel: {
@@ -105,8 +107,9 @@ export const mockNeighborhoods: Neighborhood[] = [
       "Nuuksio is a natural paradise with a national park, lakes and forests. The area offers peaceful living surrounded by Finland's beautiful nature.",
     factors: {
       airQuality: {
-        name: "Air Quality",
-        score: 98,
+        name: "Air Quality (PM2.5)",
+        score: 3,
+        unit: "µg/m³",
         description: "Excellent air quality due to forests and distance from pollution sources",
       },
       noiseLevel: {
@@ -158,8 +161,9 @@ export const mockNeighborhoods: Neighborhood[] = [
       "Tapiola is a garden city with modernist architecture, green spaces, and good services. It offers a balance of urban amenities and natural surroundings.",
     factors: {
       airQuality: {
-        name: "Air Quality",
-        score: 85,
+        name: "Air Quality (PM2.5)",
+        score: 6,
+        unit: "µg/m³",
         description: "Good air quality with many green spaces",
       },
       noiseLevel: {
@@ -205,8 +209,9 @@ export const mockNeighborhoods: Neighborhood[] = [
       "Pispala is built on a ridge between two lakes, offering stunning views. It has a bohemian atmosphere with colorful wooden houses and a strong community spirit.",
     factors: {
       airQuality: {
-        name: "Air Quality",
-        score: 80,
+        name: "Air Quality (PM2.5)",
+        score: 5,
+        unit: "µg/m³",
         description: "Good air quality with lake breezes",
       },
       noiseLevel: {
@@ -252,8 +257,9 @@ export const mockNeighborhoods: Neighborhood[] = [
       "Palosaari is a vibrant university district with a coastal location. It blends historic wooden buildings with modern architecture and has a youthful, international atmosphere due to the nearby university.",
     factors: {
       airQuality: {
-        name: "Air Quality",
-        score: 88,
+        name: "Air Quality (PM2.5)",
+        score: 4,
+        unit: "µg/m³",
         description: "Excellent air quality due to coastal winds and low industrial activity",
       },
       noiseLevel: {
@@ -299,8 +305,9 @@ export const mockNeighborhoods: Neighborhood[] = [
       "Saaristokaupunki (Archipelago City) is a modern residential area built around natural waterways. It offers lakeside living with contemporary architecture and excellent outdoor recreation opportunities.",
     factors: {
       airQuality: {
-        name: "Air Quality",
-        score: 92,
+        name: "Air Quality (PM2.5)",
+        score: 3,
+        unit: "µg/m³",
         description: "Very clean air with minimal pollution sources and lake breezes",
       },
       noiseLevel: {
@@ -346,8 +353,9 @@ export const mockNeighborhoods: Neighborhood[] = [
       "Runosmäki is one of Turku's largest suburbs with diverse housing options. It offers affordable living with good services and green spaces within reach of the city center.",
     factors: {
       airQuality: {
-        name: "Air Quality",
-        score: 70,
+        name: "Air Quality (PM2.5)",
+        score: 15,
+        unit: "µg/m³",
         description: "Decent air quality with some impact from nearby highways",
       },
       noiseLevel: {
@@ -393,8 +401,9 @@ export const mockNeighborhoods: Neighborhood[] = [
       "The Tulli and University district blends heritage buildings with modern tech facilities. It's the intellectual and innovation heart of Oulu with a vibrant atmosphere.",
     factors: {
       airQuality: {
-        name: "Air Quality",
-        score: 82,
+        name: "Air Quality (PM2.5)",
+        score: 7,
+        unit: "µg/m³",
         description: "Good air quality with efficient city planning and green initiatives",
       },
       noiseLevel: {
@@ -440,8 +449,9 @@ export const mockNeighborhoods: Neighborhood[] = [
       "Lutakko is a transformed industrial waterfront area now featuring modern apartments, cultural venues, and office spaces. It combines urban living with lakeside views and amenities.",
     factors: {
       airQuality: {
-        name: "Air Quality",
-        score: 75,
+        name: "Air Quality (PM2.5)",
+        score: 10,
+        unit: "µg/m³",
         description: "Good air quality with occasional impact from nearby traffic",
       },
       noiseLevel: {
@@ -487,8 +497,9 @@ export const mockNeighborhoods: Neighborhood[] = [
       "Porvoo's Old Town is a historic district with colorful wooden houses and cobblestone streets. It offers charming living with strong cultural heritage and tourism influence.",
     factors: {
       airQuality: {
-        name: "Air Quality",
-        score: 78,
+        name: "Air Quality (PM2.5)",
+        score: 9,
+        unit: "µg/m³",
         description: "Good air quality with some impact from tourism traffic",
       },
       noiseLevel: {
@@ -534,8 +545,9 @@ export const mockNeighborhoods: Neighborhood[] = [
       "Vanha Rauma (Old Rauma) is a UNESCO World Heritage site with well-preserved wooden buildings. It offers unique historical living with a strong sense of community and craft tradition.",
     factors: {
       airQuality: {
-        name: "Air Quality",
-        score: 85,
+        name: "Air Quality (PM2.5)",
+        score: 5,
+        unit: "µg/m³",
         description: "Clean coastal air with minimal industrial impact",
       },
       noiseLevel: {
@@ -581,8 +593,9 @@ export const mockNeighborhoods: Neighborhood[] = [
       "Rovaniemi city center is the capital of Finnish Lapland, offering modern Arctic living. It combines northern nature with urban amenities and is known as the official hometown of Santa Claus.",
     factors: {
       airQuality: {
-        name: "Air Quality",
-        score: 90,
+        name: "Air Quality (PM2.5)",
+        score: 2,
+        unit: "µg/m³",
         description: "Clean Arctic air with excellent quality throughout the year",
       },
       noiseLevel: {
