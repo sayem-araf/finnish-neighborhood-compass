@@ -5,7 +5,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "1",
     name: "Kallio",
     city: "Helsinki",
-    imageUrl: "https://images.pexels.com/photos/1234567/pexels-photo-1234567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    imageUrl: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2071&auto=format&fit=crop",
     description: "A vibrant, diverse neighborhood known for its nightlife, cultural events, and artistic community.",
     employmentStats: {
       employmentRate: 85,
@@ -111,7 +111,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "2",
     name: "Töölö",
     city: "Helsinki",
-    imageUrl: "https://images.pexels.com/photos/2345678/pexels-photo-2345678.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    imageUrl: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
     description: "An upscale residential area near the city center, known for its beautiful architecture and proximity to cultural institutions.",
     employmentStats: {
       employmentRate: 90,
@@ -212,7 +212,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "3",
     name: "Nuuksio",
     city: "Espoo",
-    imageUrl: "https://images.pexels.com/photos/3456789/pexels-photo-3456789.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop",
     description: "A nature-rich area with forests and lakes, perfect for outdoor activities and peaceful living.",
     employmentStats: {
       employmentRate: 80,
@@ -313,7 +313,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "4",
     name: "Tapiola",
     city: "Espoo",
-    imageUrl: "https://images.pexels.com/photos/4567890/pexels-photo-4567890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    imageUrl: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
     description: "A planned garden city with modernist architecture, known for its excellent urban planning and quality of life.",
     employmentStats: {
       employmentRate: 88,
@@ -419,7 +419,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "5",
     name: "Pispala",
     city: "Tampere",
-    imageUrl: "https://images.pexels.com/photos/5678901/pexels-photo-5678901.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    imageUrl: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop",
     description: "A historic neighborhood with wooden houses and a strong sense of community, known for its artistic atmosphere.",
     employmentStats: {
       employmentRate: 82,
