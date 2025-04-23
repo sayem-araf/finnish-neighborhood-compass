@@ -580,20 +580,25 @@ const NeighborhoodDetail = () => {
               </CardHeader>
               <CardContent>
                 <div className="aspect-video bg-muted rounded-lg overflow-hidden relative">
-                  <img 
-                    src={`https://maps.googleapis.com/maps/api/staticmap?center=${
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    frameBorder="0"
+                    scrolling="no"
+                    marginHeight={0}
+                    marginWidth={0}
+                    src={`https://www.openstreetmap.org/export/embed.html?bbox=${
+                      neighborhood?.city === 'Helsinki' ? '24.8384,60.1499,25.0384,60.1899' : 
+                      neighborhood?.city === 'Espoo' ? '24.5559,60.1855,24.7559,60.2255' :
+                      neighborhood?.city === 'Tampere' ? '23.6610,61.4778,23.8610,61.5178' :
+                      '24.8384,60.1499,25.0384,60.1899'
+                    }&layer=mapnik&marker=${
                       neighborhood?.city === 'Helsinki' ? '60.1699,24.9384' : 
                       neighborhood?.city === 'Espoo' ? '60.2055,24.6559' :
                       neighborhood?.city === 'Tampere' ? '61.4978,23.7610' :
                       '60.1699,24.9384'
-                    }&zoom=12&size=400x300&markers=color:blue%7C${
-                      neighborhood?.city === 'Helsinki' ? '60.1699,24.9384' : 
-                      neighborhood?.city === 'Espoo' ? '60.2055,24.6559' :
-                      neighborhood?.city === 'Tampere' ? '61.4978,23.7610' :
-                      '60.1699,24.9384'
-                    }&key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg`} 
-                    alt="Neighborhood map" 
-                    className="w-full h-full object-cover"
+                    }`}
+                    style={{ border: '1px solid #ccc' }}
                   />
                   <div className="absolute top-2 right-2 bg-white p-2 rounded-md shadow-md">
                     <div className="flex items-center gap-2 text-xs">
@@ -612,7 +617,7 @@ const NeighborhoodDetail = () => {
                 </div>
                 <div className="mt-3">
                   <a 
-                    href={`https://www.google.com/maps/search/${encodeURIComponent(
+                    href={`https://www.openstreetmap.org/search?query=${encodeURIComponent(
                       neighborhood?.name + " " + neighborhood?.city + " Finland"
                     )}`}
                     target="_blank"
@@ -661,7 +666,7 @@ const NeighborhoodDetail = () => {
               <Button variant="outline">View Oikotie Listings</Button>
             </a>
             <a
-              href={`https://www.google.com/maps/search/${encodeURIComponent(
+              href={`https://www.openstreetmap.org/search?query=${encodeURIComponent(
                 neighborhood?.name + " " + neighborhood?.city + " Finland"
               )}`}
               target="_blank"
