@@ -924,7 +924,7 @@ export const mockNeighborhoods: Neighborhood[] = [
       "id": "104",
       "name": "Runosmäki",
       "city": "Turku",
-      "imageUrl": "https://images.pexels.com/photos/5997993/pexels-photo-5997993.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "imageUrl": "https://www.ts.fi/static/content/pic_5_4715245_k411606_1200.jpg",
       "description": "A diverse residential district with a mix of apartment buildings, good recreational spaces, and strong community initiatives.",
       "employmentStats": {
         "employmentRate": 80,
@@ -1126,7 +1126,7 @@ export const mockNeighborhoods: Neighborhood[] = [
       "id": "106",
       "name": "Rajakylä",
       "city": "Oulu",
-      "imageUrl": "https://images.pexels.com/photos/5699665/pexels-photo-5699665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "imageUrl": "https://sivakka.fi/wp-content/uploads/2019/11/Rajakyla_0870.jpg",
       "description": "A northern residential area with a mix of housing types, excellent winter maintenance, and strong community spirit close to technology employment centers.",
       "employmentStats": {
         "employmentRate": 85,

@@ -16,7 +16,7 @@ const NeighborhoodStats = ({ selectedCity }: NeighborhoodStatsProps) => {
   // Calculate total population for the selected city
   const totalPopulation = cityNeighborhoods.reduce((sum, neighborhood) => {
     // Assuming each neighborhood has a population based on employment stats
-    return sum + (neighborhood.employmentStats.employmentRate * 1000);
+    return sum + (neighborhood.employmentStats.employmentRate * 7812);
   }, 0);
   
   // Calculate stats for the selected city
