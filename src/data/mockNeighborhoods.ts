@@ -5,7 +5,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "1",
     name: "Kallio",
     city: "Helsinki",
-    imageUrl: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2071&auto=format&fit=crop",
+    imageUrl: "https://kiinteistouutiset.fi/wp-content/uploads/2024/06/shutterstock_Helsinki-Hakaniemi-Kallio-Ympyratalo-2023.jpg",
     description: "A vibrant, diverse neighborhood known for its nightlife, cultural events, and artistic community.",
     employmentStats: {
       employmentRate: 85,
@@ -111,7 +111,7 @@ export const mockNeighborhoods: Neighborhood[] = [
     id: "2",
     name: "Töölö",
     city: "Helsinki",
-    imageUrl: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
+    imageUrl: "https://www.ekerakennus.fi/wp-content/uploads/2023/09/Ilmakuva-Castellum_1200x800-800x533.jpg",
     description: "An upscale residential area near the city center, known for its beautiful architecture and proximity to cultural institutions.",
     employmentStats: {
       employmentRate: 90,
