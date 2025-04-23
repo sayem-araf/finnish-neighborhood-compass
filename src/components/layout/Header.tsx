@@ -9,7 +9,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2">
           <MapPin size={24} className="text-finland-blue" />
-          <span className="font-bold text-xl">Naapuristo Kompassi</span>
+          <span className="font-bold text-xl">Neighborly</span>
         </Link>
         <nav>
           <ul className="flex items-center space-x-6">
