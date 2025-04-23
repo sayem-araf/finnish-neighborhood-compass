@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Euro, GraduationCap, Home, Heart } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 
 type DemographicsProps = {
@@ -47,7 +46,6 @@ const Demographics: React.FC<DemographicsProps> = ({ data }) => {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center space-x-2">
-        <Users className="w-6 h-6" />
         <CardTitle>Demographics</CardTitle>
       </CardHeader>
       <CardContent>
@@ -55,7 +53,6 @@ const Demographics: React.FC<DemographicsProps> = ({ data }) => {
           {/* Income Level */}
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <Euro className="h-5 w-5" />
               <h3 className="font-medium">Income Level</h3>
             </div>
             <div className="flex justify-between mb-1">
@@ -74,7 +71,6 @@ const Demographics: React.FC<DemographicsProps> = ({ data }) => {
           {/* Employment */}
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <GraduationCap className="h-5 w-5" />
               <h3 className="font-medium">Employment</h3>
             </div>
             <div className="space-y-2">
@@ -108,7 +104,6 @@ const Demographics: React.FC<DemographicsProps> = ({ data }) => {
           {/* Languages */}
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <Heart className="h-5 w-5" />
               <h3 className="font-medium">Languages Spoken</h3>
             </div>
             <div className="space-y-1">
