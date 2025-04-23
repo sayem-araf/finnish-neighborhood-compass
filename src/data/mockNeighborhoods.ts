@@ -520,7 +520,7 @@ export const mockNeighborhoods: Neighborhood[] = [
       "id": "100",
       "name": "Palosaari",
       "city": "Vaasa",
-      "imageUrl": "https://images.pexels.com/photos/4612481/pexels-photo-4612481.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "imageUrl": "https://images.unsplash.com/photo-1683538857070-5573024b9566?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "description": "A scenic island neighborhood with university campus, charming old wooden houses, and coastal views of the Gulf of Bothnia.",
       "employmentStats": {
         "employmentRate": 84,
