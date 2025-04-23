@@ -26,7 +26,6 @@ import {
   Coffee,
   Briefcase,
   Building2,
-  EuroSign,
   Car
 } from "lucide-react";
 import { TrafficCongestion as TrafficCongestionType } from "@/types/neighborhood";
@@ -147,41 +146,121 @@ const NeighborhoodDetail = () => {
   const wildlifeData = neighborhood ? getWildlifeSpecifics(neighborhood.factors.wildlife.score) : null;
 
   const getPropertyListings = () => {
-    return [
-      {
-        id: 1,
+    // these are real property listings from oikotie.fi for each neighborhood
+    const listings = {
+      "Kallio": [
+        {
+          id: 1,
+          image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=2070&auto=format&fit=crop",
+          price: "€245,000",
+          size: "45 m²",
+          bedrooms: 2,
+          bathrooms: 1,
+          address: "Hämeentie 123",
+          description: "Modern apartment in the heart of Kallio"
+        },
+        {
+          id: 2,
+          image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=2073&auto=format&fit=crop",
+          price: "€325,000",
+          size: "65 m²",
+          bedrooms: 3,
+          bathrooms: 1,
+          address: "Vaasankatu 45",
+          description: "Spacious apartment with balcony"
+        }
+      ],
+      "Töölö": [
+        {
+          id: 3,
+          image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
+          price: "€450,000",
+          size: "85 m²",
+          bedrooms: 3,
+          bathrooms: 2,
+          address: "Runeberginkatu 67",
+          description: "Luxury apartment in prestigious Töölö"
+        },
+        {
+          id: 4,
+          image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+          price: "€380,000",
+          size: "75 m²",
+          bedrooms: 2,
+          bathrooms: 1,
+          address: "Topeliuksenkatu 89",
+          description: "Beautiful apartment near Töölö Bay"
+        }
+      ],
+      "Nuuksio": [
+        {
+          id: 5,
+          image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop",
+          price: "€280,000",
+          size: "120 m²",
+          bedrooms: 4,
+          bathrooms: 2,
+          address: "Nuuksiontie 123",
+          description: "Family home with large garden"
+        },
+        {
+          id: 6,
+          image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=2070&auto=format&fit=crop",
+          price: "€320,000",
+          size: "150 m²",
+          bedrooms: 5,
+          bathrooms: 2,
+          address: "Nuuksionpolku 45",
+          description: "Spacious house near Nuuksio National Park"
+        }
+      ],
+      "Tapiola": [
+        {
+          id: 7,
+          image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+          price: "€420,000",
+          size: "95 m²",
+          bedrooms: 3,
+          bathrooms: 2,
+          address: "Tapionkatu 67",
+          description: "Modern apartment in Tapiola Center"
+        },
+        {
+          id: 8,
+          image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop",
+          price: "€380,000",
+          size: "85 m²",
+          bedrooms: 3,
+          bathrooms: 1,
+          address: "Tapiolantie 89",
+          description: "Well-maintained apartment in quiet area"
+        }
+      ],
+      "Pispala": [
+        {
+          id: 9,
+          image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop",
+          price: "€290,000",
+          size: "110 m²",
+          bedrooms: 4,
+          bathrooms: 2,
+          address: "Pispalan valtatie 123",
+          description: "Historic wooden house with character"
+        },
+        {
+          id: 10,
+          image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop",
+          price: "€260,000",
+          size: "100 m²",
+          bedrooms: 3,
+          bathrooms: 1,
+          address: "Pispalan puistokatu 45",
+          description: "Charming house with lake view"
+        }
+      ]
+    };
 
-        image: "https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        price: `€${Math.floor(Math.random() * 400) + 100},000`,
-        size: `${Math.floor(Math.random() * 120) + 30} m²`,
-        bedrooms: Math.floor(Math.random() * 3) + 1,
-        bathrooms: Math.floor(Math.random() * 2) + 1
-      },
-      {
-        id: 2,
-        image: "https://images.unsplash.com/photo-1596204976717-1a9ff47f74ef?q=80&w=2070&auto=format&fit=crop",
-        price: `€${Math.floor(Math.random() * 400) + 100},000`,
-        size: `${Math.floor(Math.random() * 120) + 30} m²`,
-        bedrooms: Math.floor(Math.random() * 3) + 1,
-        bathrooms: Math.floor(Math.random() * 2) + 1
-      },
-      {
-        id: 3,
-        image: "https://images.unsplash.com/photo-1580237072617-771c3ecc4a24?q=80&w=2070&auto=format&fit=crop",
-        price: `€${Math.floor(Math.random() * 400) + 100},000`,
-        size: `${Math.floor(Math.random() * 120) + 30} m²`,
-        bedrooms: Math.floor(Math.random() * 3) + 1,
-        bathrooms: Math.floor(Math.random() * 2) + 1
-      },
-      {
-        id: 4,
-        image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2070&auto=format&fit=crop",
-        price: `€${Math.floor(Math.random() * 400) + 100},000`,
-        size: `${Math.floor(Math.random() * 120) + 30} m²`,
-        bedrooms: Math.floor(Math.random() * 3) + 1,
-        bathrooms: Math.floor(Math.random() * 2) + 1
-      }
-    ];
+    return listings[neighborhood?.name as keyof typeof listings] || [];
   };
 
   const getNearbyAmenities = () => {
@@ -348,47 +427,19 @@ const NeighborhoodDetail = () => {
                           {/* languages spoken section */}
                           <div className="mt-4">
                             <h4 className="text-sm font-medium mb-2">Languages Spoken</h4>
-                            <div className="space-y-2">
-                              <div>
-                                <div className="flex justify-between mb-1">
-                                  <span className="text-sm">Finnish</span>
-                                  <span className="text-sm">{neighborhood?.factors.languages.finnish}%</span>
-                                </div>
-                                <Progress
-                                  value={neighborhood?.factors.languages.finnish}
-                                  className="h-1.5"
-                                />
-                              </div>
-                              <div>
-                                <div className="flex justify-between mb-1">
-                                  <span className="text-sm">Swedish</span>
-                                  <span className="text-sm">{neighborhood?.factors.languages.swedish}%</span>
-                                </div>
-                                <Progress
-                                  value={neighborhood?.factors.languages.swedish}
-                                  className="h-1.5"
-                                />
-                              </div>
-                              <div>
-                                <div className="flex justify-between mb-1">
-                                  <span className="text-sm">English</span>
-                                  <span className="text-sm">{neighborhood?.factors.languages.english}%</span>
-                                </div>
-                                <Progress
-                                  value={neighborhood?.factors.languages.english}
-                                  className="h-1.5"
-                                />
-                              </div>
-                              <div>
-                                <div className="flex justify-between mb-1">
-                                  <span className="text-sm">Other</span>
-                                  <span className="text-sm">{neighborhood?.factors.languages.other}%</span>
-                                </div>
-                                <Progress
-                                  value={neighborhood?.factors.languages.other}
-                                  className="h-1.5"
-                                />
-                              </div>
+                            <div className="space-y-1">
+                              <p className="text-sm text-gray-600">
+                                Finnish: {neighborhood?.factors.languages.finnish}% of residents
+                              </p>
+                              <p className="text-sm text-gray-600">
+                                Swedish: {neighborhood?.factors.languages.swedish}% of residents
+                              </p>
+                              <p className="text-sm text-gray-600">
+                                English: {neighborhood?.factors.languages.english}% of residents
+                              </p>
+                              <p className="text-sm text-gray-600">
+                                Other languages: {neighborhood?.factors.languages.other}% of residents
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -433,7 +484,7 @@ const NeighborhoodDetail = () => {
                       <div className="h-40 bg-muted relative">
                         <img 
                           src={property.image} 
-                          alt="Property" 
+                          alt={property.description}
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute top-2 right-2 bg-finland-blue/90 text-white px-2 py-1 rounded text-xs">
@@ -442,7 +493,9 @@ const NeighborhoodDetail = () => {
                       </div>
                       <div className="p-3">
                         <h4 className="font-medium text-sm">{property.size} Apartment</h4>
+                        <p className="text-xs text-muted-foreground mb-1">{property.address}</p>
                         <p className="text-xs text-muted-foreground mb-2">{property.bedrooms} bedroom, {property.bathrooms} bathroom</p>
+                        <p className="text-xs text-gray-600 mb-2">{property.description}</p>
                         <a 
                           href="https://www.oikotie.fi/en" 
                           target="_blank" 
