@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/api";
 import {
@@ -9,6 +10,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { ExternalLink } from "lucide-react";
 
 // using a demo api key - replace with your own in production
 const defaultGoogleMapsApiKey = "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg";
@@ -99,14 +102,16 @@ const center = {
 const FinlandMap = () => {
   const [apiKey, setApiKey] = useState<string>(defaultGoogleMapsApiKey);
   const [tokenInput, setTokenInput] = useState<string>("");
-  const [showTokenInput, setShowTokenInput] = useState<boolean>(false);
+  const [showTokenInput, setShowTokenInput] = useState<boolean>(true); // Default to showing input
   const [selectedLocation, setSelectedLocation] = useState<any>(null);
+  const [mapError, setMapError] = useState<boolean>(false);
   const { toast } = useToast();
 
   const handleTokenUpdate = () => {
     if (tokenInput) {
       setApiKey(tokenInput);
       setShowTokenInput(false);
+      setMapError(false);
       toast({
         title: "API Key updated",
         description: "Map will reload with your Google Maps API key.",
@@ -120,12 +125,27 @@ const FinlandMap = () => {
     }
   };
 
+  const handleMapError = () => {
+    console.log("Map failed to load - API key may be restricted");
+    setMapError(true);
+    setShowTokenInput(true);
+  };
+
   return (
     <Card>
       <CardHeader>
         <CardTitle>Neighborhood Locations</CardTitle>
       </CardHeader>
       <CardContent>
+        {mapError && (
+          <Alert className="mb-4 bg-amber-50 border-amber-200">
+            <AlertDescription>
+              The map failed to load due to an API key restriction. Google restricts API keys to specific domains.
+              Please enter your own unrestricted Google Maps API key below.
+            </AlertDescription>
+          </Alert>
+        )}
+        
         {showTokenInput ? (
           <div className="mb-4 space-y-2">
             <p className="text-sm text-muted-foreground">
@@ -134,9 +154,10 @@ const FinlandMap = () => {
                 href="https://console.cloud.google.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
+                className="text-blue-500 hover:underline inline-flex items-center"
               >
                 Google Cloud Console
+                <ExternalLink className="h-3 w-3 ml-1" />
               </a>
             </p>
             <div className="flex gap-2">
@@ -157,7 +178,11 @@ const FinlandMap = () => {
           </button>
         )}
         <div className="w-full h-[300px] rounded-md overflow-hidden">
-          <LoadScript googleMapsApiKey={apiKey}>
+          <LoadScript 
+            googleMapsApiKey={apiKey}
+            onError={handleMapError}
+            loadingElement={<div className="w-full h-full bg-slate-100 flex items-center justify-center">Loading map...</div>}
+          >
             <GoogleMap
               mapContainerStyle={mapContainerStyle}
               center={center}
