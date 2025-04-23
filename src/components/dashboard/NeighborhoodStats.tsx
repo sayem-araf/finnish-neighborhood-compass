@@ -13,6 +13,12 @@ const NeighborhoodStats = ({ selectedCity }: NeighborhoodStatsProps) => {
     (n) => n.city === selectedCity
   );
   
+  // Calculate total population for the selected city
+  const totalPopulation = cityNeighborhoods.reduce((sum, neighborhood) => {
+    // Assuming each neighborhood has a population based on employment stats
+    return sum + (neighborhood.employmentStats.employmentRate * 1000);
+  }, 0);
+  
   // Calculate stats for the selected city
   const totalNeighborhoods = cityNeighborhoods.length;
   
@@ -70,13 +76,13 @@ const NeighborhoodStats = ({ selectedCity }: NeighborhoodStatsProps) => {
 
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Total Neighborhoods</CardTitle>
-          <MapPin className="h-4 w-4 text-muted-foreground" />
+          <CardTitle className="text-sm font-medium">Total Population</CardTitle>
+          <Users className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{totalNeighborhoods}</div>
+          <div className="text-2xl font-bold">{Math.round(totalPopulation)}</div>
           <p className="text-xs text-muted-foreground">
-            In {selectedCity}, Finland
+            Estimated population in {selectedCity}, Finland
           </p>
         </CardContent>
       </Card>

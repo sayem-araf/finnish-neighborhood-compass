@@ -1,4 +1,4 @@
-import { Neighborhood } from "../types/neighborhood";
+import { Neighborhood } from "@/types/neighborhood";
 
 export const mockNeighborhoods: Neighborhood[] = [
   {
@@ -49,6 +49,17 @@ export const mockNeighborhoods: Neighborhood[] = [
       },
       recreationOptions: ["Cafés", "Bars", "Theaters", "Gyms", "Small parks"],
     },
+    employmentStats: {
+      employmentRate: 75,
+      averageSalary: 4500,
+      majorIndustries: [
+        { name: "Technology", percentage: 35 },
+        { name: "Services", percentage: 25 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Other", percentage: 10 }
+      ]
+    }
   },
   {
     id: "toolo-helsinki",
@@ -97,6 +108,17 @@ export const mockNeighborhoods: Neighborhood[] = [
       },
       recreationOptions: ["Parks", "Museums", "Opera", "Sporting facilities", "Beaches"],
     },
+    employmentStats: {
+      employmentRate: 75,
+      averageSalary: 4500,
+      majorIndustries: [
+        { name: "Technology", percentage: 35 },
+        { name: "Services", percentage: 25 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Other", percentage: 10 }
+      ]
+    }
   },
   {
     id: "nuuksio-espoo",
@@ -151,6 +173,17 @@ export const mockNeighborhoods: Neighborhood[] = [
         "Winter sports",
       ],
     },
+    employmentStats: {
+      employmentRate: 75,
+      averageSalary: 4500,
+      majorIndustries: [
+        { name: "Technology", percentage: 35 },
+        { name: "Services", percentage: 25 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Other", percentage: 10 }
+      ]
+    }
   },
   {
     id: "tapiola-espoo",
@@ -199,6 +232,17 @@ export const mockNeighborhoods: Neighborhood[] = [
       },
       recreationOptions: ["Shopping", "Cultural center", "Sports facilities", "Parks", "Cycling"],
     },
+    employmentStats: {
+      employmentRate: 75,
+      averageSalary: 4500,
+      majorIndustries: [
+        { name: "Technology", percentage: 35 },
+        { name: "Services", percentage: 25 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Other", percentage: 10 }
+      ]
+    }
   },
   {
     id: "pispala-tampere",
@@ -247,6 +291,17 @@ export const mockNeighborhoods: Neighborhood[] = [
       },
       recreationOptions: ["Swimming", "Sauna", "Community gardens", "Art events", "Walking trails"],
     },
+    employmentStats: {
+      employmentRate: 75,
+      averageSalary: 4500,
+      majorIndustries: [
+        { name: "Technology", percentage: 35 },
+        { name: "Services", percentage: 25 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Other", percentage: 10 }
+      ]
+    }
   },
   {
     id: "palosaari-vaasa",
@@ -295,6 +350,17 @@ export const mockNeighborhoods: Neighborhood[] = [
       },
       recreationOptions: ["Beach activities", "University events", "Cafés", "Coastal trails", "Student organizations"],
     },
+    employmentStats: {
+      employmentRate: 75,
+      averageSalary: 4500,
+      majorIndustries: [
+        { name: "Technology", percentage: 35 },
+        { name: "Services", percentage: 25 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Other", percentage: 10 }
+      ]
+    }
   },
   {
     id: "saaristokaupunki-kuopio",
@@ -343,6 +409,17 @@ export const mockNeighborhoods: Neighborhood[] = [
       },
       recreationOptions: ["Boating", "Fishing", "Nature trails", "Winter ice activities", "Family parks"],
     },
+    employmentStats: {
+      employmentRate: 75,
+      averageSalary: 4500,
+      majorIndustries: [
+        { name: "Technology", percentage: 35 },
+        { name: "Services", percentage: 25 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Other", percentage: 10 }
+      ]
+    }
   },
   {
     id: "runosmaki-turku",
@@ -391,6 +468,17 @@ export const mockNeighborhoods: Neighborhood[] = [
       },
       recreationOptions: ["Sports fields", "Community center", "Forest paths", "Playgrounds", "Indoor activities"],
     },
+    employmentStats: {
+      employmentRate: 75,
+      averageSalary: 4500,
+      majorIndustries: [
+        { name: "Technology", percentage: 35 },
+        { name: "Services", percentage: 25 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Other", percentage: 10 }
+      ]
+    }
   },
   {
     id: "kampustulli-oulu",
@@ -439,6 +527,17 @@ export const mockNeighborhoods: Neighborhood[] = [
       },
       recreationOptions: ["Tech events", "University facilities", "Creative spaces", "Cafés", "Winter activities"],
     },
+    employmentStats: {
+      employmentRate: 75,
+      averageSalary: 4500,
+      majorIndustries: [
+        { name: "Technology", percentage: 35 },
+        { name: "Services", percentage: 25 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Other", percentage: 10 }
+      ]
+    }
   },
   {
     id: "lutakko-jyvaskyla",
@@ -487,6 +586,17 @@ export const mockNeighborhoods: Neighborhood[] = [
       },
       recreationOptions: ["Concert venues", "Lakeside promenade", "Urban culture", "Restaurants", "Water sports"],
     },
+    employmentStats: {
+      employmentRate: 75,
+      averageSalary: 4500,
+      majorIndustries: [
+        { name: "Technology", percentage: 35 },
+        { name: "Services", percentage: 25 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Other", percentage: 10 }
+      ]
+    }
   },
   {
     id: "porvoo-old-town",
@@ -535,6 +645,17 @@ export const mockNeighborhoods: Neighborhood[] = [
       },
       recreationOptions: ["Historical sites", "Riverside walks", "Artisan shops", "Cafés", "Cultural events"],
     },
+    employmentStats: {
+      employmentRate: 75,
+      averageSalary: 4500,
+      majorIndustries: [
+        { name: "Technology", percentage: 35 },
+        { name: "Services", percentage: 25 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Other", percentage: 10 }
+      ]
+    }
   },
   {
     id: "rauma-old-town",
@@ -583,6 +704,17 @@ export const mockNeighborhoods: Neighborhood[] = [
       },
       recreationOptions: ["Heritage sites", "Lace making", "Maritime activities", "Cultural events", "Traditional crafts"],
     },
+    employmentStats: {
+      employmentRate: 75,
+      averageSalary: 4500,
+      majorIndustries: [
+        { name: "Technology", percentage: 35 },
+        { name: "Services", percentage: 25 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Other", percentage: 10 }
+      ]
+    }
   },
   {
     id: "rovaniemi-center",
@@ -631,6 +763,17 @@ export const mockNeighborhoods: Neighborhood[] = [
       },
       recreationOptions: ["Northern lights viewing", "Winter sports", "Arctic tourism", "Nature activities", "Cultural experiences"],
     },
+    employmentStats: {
+      employmentRate: 75,
+      averageSalary: 4500,
+      majorIndustries: [
+        { name: "Technology", percentage: 35 },
+        { name: "Services", percentage: 25 },
+        { name: "Education", percentage: 15 },
+        { name: "Healthcare", percentage: 15 },
+        { name: "Other", percentage: 10 }
+      ]
+    }
   }
 ];
 
