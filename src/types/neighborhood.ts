@@ -1,3 +1,4 @@
+
 export type NeighborhoodFactor = {
   name: string;
   score: number; // 0-100

@@ -5,10 +5,11 @@ import Layout from "../components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { Checkbox } from "@/components/ui/checkbox";
 import { UserPreferences, Neighborhood } from "../types/neighborhood";
 import { getNeighborhoodsByCity } from "../data/mockNeighborhoods";
 import { matchNeighborhoodsToPreferences } from "../utils/neighborhoodMatcher";
-import { MapPin, Sparkles } from "lucide-react";
+import { MapPin, Sparkles, Compare } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 type MatchedNeighborhood = {
@@ -23,6 +24,7 @@ const Results = () => {
   const [preferences, setPreferences] = useState<UserPreferences | null>(null);
   const [results, setResults] = useState<MatchedNeighborhood[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedNeighborhoods, setSelectedNeighborhoods] = useState<string[]>([]);
 
   useEffect(() => {
     // Retrieve preferences from session storage
@@ -67,6 +69,35 @@ const Results = () => {
     }
   }, [navigate, toast]);
 
+  const toggleNeighborhoodSelection = (neighborhoodId: string) => {
+    setSelectedNeighborhoods(prev => {
+      if (prev.includes(neighborhoodId)) {
+        return prev.filter(id => id !== neighborhoodId);
+      } else {
+        if (prev.length >= 5) {
+          toast({
+            title: "Selection limit reached",
+            description: "You can compare up to 5 neighborhoods at once.",
+          });
+          return prev;
+        }
+        return [...prev, neighborhoodId];
+      }
+    });
+  };
+
+  const handleCompareClick = () => {
+    if (selectedNeighborhoods.length < 2) {
+      toast({
+        title: "More selections needed",
+        description: "Please select at least 2 neighborhoods to compare.",
+      });
+      return;
+    }
+    
+    navigate(`/comparison?ids=${selectedNeighborhoods.join(',')}`);
+  };
+
   if (isLoading) {
     return (
       <Layout>
@@ -103,18 +134,33 @@ const Results = () => {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-12">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">Your Neighborhood Matches in {preferences.city}</h1>
-          <p className="text-muted-foreground">
-            Based on your preferences, we found {results.length} neighborhoods that could be a good fit for you.
-          </p>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">Your Neighborhood Matches in {preferences.city}</h1>
+            <p className="text-muted-foreground">
+              Based on your preferences, we found {results.length} neighborhoods that could be a good fit for you.
+            </p>
+          </div>
+          
+          {selectedNeighborhoods.length > 0 && (
+            <div className="mt-4 md:mt-0">
+              <Button 
+                onClick={handleCompareClick}
+                className="flex items-center gap-2"
+                disabled={selectedNeighborhoods.length < 2}
+              >
+                <Compare size={16} />
+                Compare Selected ({selectedNeighborhoods.length})
+              </Button>
+            </div>
+          )}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {results.map(({ neighborhood, score, matchReasons }) => (
             <Card key={neighborhood.id} className="overflow-hidden h-full flex flex-col">
               <div 
-                className="h-48 bg-cover bg-center" 
+                className="h-48 bg-cover bg-center relative" 
                 style={{ 
                   backgroundImage: neighborhood.imageUrl 
                     ? `url(${neighborhood.imageUrl})` 
@@ -125,6 +171,15 @@ const Results = () => {
                   <div className="flex items-center gap-1">
                     <Sparkles size={16} className="text-yellow-400" />
                     <span className="font-bold">{score}% Match</span>
+                  </div>
+                </div>
+                <div className="absolute top-2 right-2">
+                  <div className="bg-white rounded-md p-0.5">
+                    <Checkbox 
+                      id={`compare-${neighborhood.id}`}
+                      checked={selectedNeighborhoods.includes(neighborhood.id)}
+                      onCheckedChange={() => toggleNeighborhoodSelection(neighborhood.id)}
+                    />
                   </div>
                 </div>
               </div>
