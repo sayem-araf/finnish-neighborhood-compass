@@ -26,10 +26,13 @@ import {
   Coffee,
   Briefcase,
   Building2,
-  Car
+  Car,
+  MessageCircle
 } from "lucide-react";
 import TrafficCongestion from "@/components/neighborhood/TrafficCongestion";
 import Demographics from "@/components/neighborhood/Demographics";
+import SentimentAnalysis from "@/components/neighborhood/SentimentAnalysis";
+import Reviews from "@/components/neighborhood/Reviews";
 
 const NeighborhoodDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -65,6 +68,51 @@ const NeighborhoodDetail = () => {
       setIsLoading(false);
     }, 800);
   }, [id, navigate, toast]);
+
+  const mockSentimentAnalysis = {
+    overall: 0.65,
+    aspects: {
+      safety: 0.8,
+      noise: -0.2,
+      transportation: 0.7,
+      amenities: 0.5,
+      cleanliness: 0.3,
+      affordability: -0.4,
+      community: 0.6
+    },
+    commonPhrases: {
+      positive: ["Safe area", "Great transit", "Friendly neighbors", "Good schools", "Many parks"],
+      negative: ["Expensive rent", "Weekend noise", "Limited parking", "Few restaurants"]
+    },
+    recentTrend: "improving" as const
+  };
+
+  const mockReviews = [
+    {
+      id: "r1",
+      author: "Mika L.",
+      date: "February 2025",
+      rating: 4,
+      content: "I've lived here for 3 years and really enjoy the neighborhood. The transportation options are excellent and there are many green spaces nearby. However, housing costs are quite high.",
+      tags: ["transportation", "green spaces", "expensive"]
+    },
+    {
+      id: "r2",
+      author: "Johanna K.",
+      date: "January 2025",
+      rating: 5,
+      content: "Great community feel with friendly neighbors. Very safe area for families and the schools are excellent. Shopping options have improved recently.",
+      tags: ["safe", "family-friendly", "good schools"]
+    },
+    {
+      id: "r3",
+      author: "Tomas H.",
+      date: "December 2024",
+      rating: 3,
+      content: "The location is excellent for transportation links, but the nightlife can be noisy on weekends. Apartment prices keep rising which is concerning.",
+      tags: ["good location", "noisy", "expensive"]
+    }
+  ];
 
   if (isLoading) {
     return (
@@ -465,6 +513,14 @@ const NeighborhoodDetail = () => {
                 />
               </div>
             )}
+            
+            <div className="mt-6">
+              <SentimentAnalysis sentimentData={mockSentimentAnalysis} />
+            </div>
+            
+            <div className="mt-6">
+              <Reviews reviews={mockReviews} />
+            </div>
             
             <Card className="mt-6">
               <CardHeader>

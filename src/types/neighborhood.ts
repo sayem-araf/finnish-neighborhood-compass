@@ -33,6 +33,27 @@ export type DevelopmentPlan = {
   impact: string[];
 };
 
+export type Review = {
+  id: string;
+  author: string;
+  date: string;
+  rating: number; // 1-5 stars
+  content: string;
+  tags: string[]; // key aspects mentioned - like "safety", "transportation", etc.
+};
+
+export type SentimentAnalysis = {
+  overall: number; // -1 to 1 where -1 is very negative, 0 is neutral, 1 is very positive
+  aspects: {
+    [key: string]: number; // e.g., "safety": 0.8, "noise": -0.2
+  };
+  commonPhrases: {
+    positive: string[];
+    negative: string[];
+  };
+  recentTrend: "improving" | "declining" | "stable";
+};
+
 export type Neighborhood = {
   id: string;
   name: string;
@@ -57,6 +78,8 @@ export type Neighborhood = {
     trafficCongestion: TrafficCongestion;
   };
   developmentPlans: DevelopmentPlan[];
+  reviews?: Review[];
+  sentimentAnalysis?: SentimentAnalysis;
 };
 
 export type UserPreferences = {
